@@ -1,0 +1,318 @@
+@font-face {
+  font-family: "Inter";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: oblique 0deg 10deg;
+  src: url("../font/Inter.var.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CompagnonBold";
+  font-display: swap;
+  src: url("../font/Compagnon-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CompagnonItalic";
+  font-display: swap;
+  src: url("../font/Compagnon-Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CompagnonLight";
+  font-display: swap;
+  src: url("../font/Compagnon-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CompagnonMedium";
+  font-display: swap;
+  src: url("../font/Compagnon-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CompagnonRoman";
+  font-display: swap;
+  src: url("../font/Compagnon-Roman.woff2") format("woff2");
+}
+
+:root {
+  --color-primary: hsl(190, 100%, 40%);
+  --color-secondary: hsl(240, 100%, 0%);
+  --color-white: white;
+}
+
+body {
+  background-color: var(--color-white);
+  scroll-behavior: smooth;
+}
+
+* {
+  scrollbar-color: var(--color-primary) var(--color-white);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-white);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.2rem;
+  margin-bottom: 5px;
+  color: var(--color-primary);
+}
+
+h1 {
+  font-size: 3.6rem;
+  line-height: 3.6rem;
+  text-transform: uppercase;
+  font-family: "CompagnonMedium";
+  margin: 12px 0 12px 0;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-family: "CompagnonMedium";
+  margin: 8px 0 8px 0;
+}
+
+.container-right h2 {
+  margin-bottom: 0px;
+}
+
+h3 {
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+  font-family: "CompagnonMedium";
+}
+
+p {
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+  font-size: 1.1rem;
+  line-height: 1.3rem;
+  color: var(--color-secondary);
+  margin-bottom: 6px;
+}
+
+a,
+a:visited {
+  font-family: "CompagnonMedium";
+  color: var(--color-primary);
+  text-decoration: underline;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+img {
+  height: 80vh;
+  margin: 4rem;
+}
+
+li {
+  margin-bottom: 1.2rem;
+}
+
+.fixed {
+  position: fixed;
+  left: 1rem;
+  width: 18vw;
+}
+
+.impr {
+  position: fixed;
+  z-index: 1000;
+  left: 10px;
+  bottom: 10px;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  background-color: var(--color-primary);
+}
+
+.container-global {
+  display: flex;
+  width: 100%;
+}
+
+nav {
+  width: 20%;
+  box-shadow: 2px 0px 0px var(--color-primary);
+}
+
+.container-notice {
+  width: 84%;
+}
+
+.container-intro {
+  text-transform: uppercase;
+  padding: 1rem 2rem 2rem 2rem;
+  box-shadow: 0px 2px 0px var(--color-primary);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-corps {
+  display: flex;
+}
+
+.logi-infos:last-child {
+  margin-bottom: 2rem;
+}
+
+.container-left {
+  padding: 0 2rem;
+  width: 50%;
+  box-shadow: 2px 0px 0px var(--color-primary);
+  padding-right: 10%;
+  overflow: hidden;
+}
+
+.container-right h1:first-child,
+.container-left h1:not(#presentation) {
+  margin-top: 2rem;
+}
+
+.container-right {
+  padding: 0 2rem;
+  width: 30%;
+  overflow: hidden;
+}
+
+.logi-infos {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.container-right li {
+  margin-left: 1.5rem;
+}
+
+.container-right li::before {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  translate: -1.4rem;
+}
+
+.container-right li:nth-child(1)::before,
+.container-right li:nth-child(2)::before,
+.container-right li:nth-child(3)::before {
+  outline: 2px solid black;
+}
+
+.container-right li:nth-child(1)::before {
+  background-color: #00ff7fff;
+}
+
+.container-right li:nth-child(2)::before {
+  background-color: white;
+}
+
+.container-right li:nth-child(3)::before {
+  background-color: #00ffffff;
+}
+
+.container-right li:nth-child(4)::before {
+  background-image: url("../import/version_scheme_arrow.png");
+  background-size: contain;
+}
+
+.container-right li:nth-child(5)::before {
+  background-image: url("../import/version_scheme_arrow_dotted.png");
+  background-size: contain;
+}
+
+@media print {
+  @page {
+    size: 210mm 297mm;
+    margin: 10mm;
+  }
+
+  h1 {
+    font-size: 16pt;
+    line-height: 16pt;
+  }
+
+  h2 {
+    font-size: 12pt;
+    line-height: 12pt;
+  }
+
+  h3 {
+    font-size: 8pt;
+    line-height: 12pt;
+    margin-top: 0;
+  }
+
+  a {
+    font-size: 9pt;
+    line-height: 12pt;
+  }
+
+  p {
+    font-size: 8pt;
+    line-height: 12pt;
+  }
+
+  nav,
+  .fixed {
+    display: none;
+  }
+
+  .container-notice {
+    width: 100%;
+  }
+
+  .container-right h1:first-child,
+  .container-left h1:not(#presentation) {
+    margin-top: 0rem;
+  }
+
+  img {
+    height: auto;
+    width: calc(100% - 4rem);
+    margin: 3rem 3rem 3rem 1rem;
+  }
+
+  .container-right li:nth-child(1)::before,
+  .container-right li:nth-child(2)::before,
+  .container-right li:nth-child(3)::before {
+    outline: 1.5px solid black;
+  }
+
+  .container-intro {
+    padding: 0 0 1rem 0;
+  }
+
+  .container-left {
+    padding: 0 1rem 0 0;
+    margin: 0;
+    width: 66%;
+    box-shadow: 1.6px 0px 0px var(--color-primary);
+  }
+
+  .container-right {
+    padding: 0 0 0 1rem;
+    width: 34%;
+  }
+
+  .break {
+    break-before: always;
+  }
+}
