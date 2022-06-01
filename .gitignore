@@ -1,2 +1,3 @@
 .vscode
-workshop/workshop_01/creators
+workshop/workshop_01/makers/*/made
+fiveserver.config.js

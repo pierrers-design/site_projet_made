@@ -51,23 +51,73 @@
 
 :root {
   --color-base: black;
-  --hue-neutral: 120deg;
-  --hue-software: 220deg;
-  --hue-workshop: 320deg;
-  --color-neutral: hsl(var(--hue-neutral), 50%, 80%);
-  --color-software: hsl(var(--hue-software), 50%, 80%);
-  --color-workshop: hsl(var(--hue-workshop), 50%, 80%);
-  --line-weight: 2px;
+  --color-none: rgba(0, 0, 0, 0);
+  --hue-maker: 0deg;
+  --hue-software: 80deg;
+  --hue-neutral: 160deg;
+  --hue-workshop: 240deg;
+  --color-maker: hsl(var(--hue-maker), 60%, 80%);
+  --color-neutral: hsl(var(--hue-neutral), 60%, 80%);
+  --color-software: hsl(var(--hue-software), 60%, 80%);
+  --color-workshop: hsl(var(--hue-workshop), 60%, 80%);
+  --line-weight: 0px;
   --margin-top: 0.8rem;
   --margin-right: calc(var(--margin-top) * 1.375);
   --floating-space: 0.6rem;
   --border-radius: 0.4rem;
-  --workshop-scale-x: 300vw;
-  --workshop-scale-y: 300vh;
+  --board-scale-x: 400vw;
+  --board-scale-y: 400vh;
+}
+
+ul,
+ol,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+/*!!!!!!!!!!!!!!!! scrollbar !!!!!!!!!!!!!!!!*/
+
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-none);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-base);
+}
+* {
+  scrollbar-color: var(--color-base) var(--color-none);
+}
+
+/*!!!!!!!!!!!!!!!! simplebar !!!!!!!!!!!!!!!!*/
+
+.simplebar-scrollbar:before {
+  background: black;
+  border-radius: var(--border-radius);
+}
+
+.simplebar-track.simplebar-vertical {
+  top: 0;
+  width: 12px;
 }
 
 /*!!!!!!!!!!!!!!!! cursor !!!!!!!!!!!!!!!!*/
 
+a,
 .arrow,
 .ul-button li,
 .pointer {
@@ -111,21 +161,28 @@ h5 {
   font-size: 0.8rem;
 }
 
-/******** specific text ********/
-
-.button span {
-  position: relative;
-  line-height: 0;
+p,
+a:not(.button) {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
 }
 
+.instruction h1,
+.instruction h2,
+.instruction p {
+  margin-top: var(--margin-top);
+}
+
+/******** specific text ********/
+
 .default {
-  top: 36%;
+  top: 30%;
 }
 
 .krita {
   font-family: "Gulax";
   font-size: 2.4rem;
-  top: 30%;
+  top: 32%;
 }
 
 .blender {
@@ -174,11 +231,71 @@ h5 {
 
 .workshop01 {
   font-family: "CompagnonMedium";
-  font-size: 2.4rem;
-  top: 32%;
+  font-size: 2.2rem;
+  top: 30%;
+}
+
+.text-smaller {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+
+.workshop01 a {
+  font-size: 2.2rem;
+}
+
+.article h1 {
+  text-transform: uppercase;
+}
+
+.instruction li a {
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 /*!!!!!!!!!!!!!!!! navigation !!!!!!!!!!!!!!!!*/
+
+/******** top bar ********/
+
+.navigation-global {
+  position: fixed;
+  z-index: 5;
+  display: flex;
+  width: calc(100% - var(--margin-right) * 2);
+  padding: var(--margin-top) var(--margin-right);
+  justify-content: space-between;
+}
+
+/* top bar */
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo h5 {
+  margin-left: var(--margin-top);
+}
+
+.page-maker .navigation-global h5,
+.page-maker .navigation-global h1 {
+  color: var(--color-maker);
+}
+
+.page-neutral .navigation-global h5,
+.page-neutral .navigation-global h1 {
+  color: var(--color-neutral);
+}
+
+.page-workshop .navigation-global h5,
+.page-workshop .navigation-global h1 {
+  color: var(--color-workshop);
+}
+
+.page-software .navigation-global h5,
+.page-software .navigation-global h1 {
+  color: var(--color-software);
+}
 
 /******** global button ********/
 
@@ -189,13 +306,37 @@ h5 {
   border: var(--line-weight) solid var(--color-base);
   border-radius: var(--border-radius);
   padding: var(--margin-top);
+  transition: background-color 0.08s ease-in-out;
 }
 
-.page-software .button {
-  background-color: var(--color-software);
+.button span {
+  position: relative;
+  line-height: 0;
 }
-.software .button:hover {
-  background-color: var(--color-software);
+
+.button-file {
+  position: absolute;
+  top: 0px;
+  opacity: 0;
+  transition: opacity 0.08s ease-in-out;
+}
+
+.loaded:hover .button-file {
+  opacity: 1;
+}
+
+.page-maker .button {
+  background-color: var(--color-maker);
+}
+.maker .button:hover {
+  background-color: var(--color-maker);
+}
+
+.page-neutral .button {
+  background-color: var(--color-neutral);
+}
+.neutral .button:hover {
+  background-color: var(--color-neutral);
 }
 
 .page-workshop .button {
@@ -205,11 +346,21 @@ h5 {
   background-color: var(--color-workshop);
 }
 
-.page-neutral .button {
-  background-color: var(--color-neutral);
+.page-software .button {
+  background-color: var(--color-software);
 }
-.neutral .button:hover {
-  background-color: var(--color-neutral);
+.software .button:hover {
+  background-color: var(--color-software);
+}
+
+.maker .button,
+.neutral .button,
+.workshop .button {
+  text-transform: capitalize;
+}
+
+.software .button {
+  text-transform: uppercase;
 }
 
 /******** arrow button ********/
@@ -223,54 +374,136 @@ h5 {
   mask: url("../import/arrow.svg") no-repeat;
   -webkit-mask-size: cover;
   mask-size: cover;
-  border: var(--line-weight) solid var(--color-neutral);
+  border: 1px solid var(--color-neutral);
 }
 
 .arrow-color {
   background-color: var(--color-base);
 }
 
-.top-bar .arrow-color {
+.page-neutral .navigation-global .arrow-color {
   background-color: var(--color-neutral);
+}
+
+.page-maker .navigation-global .arrow-color {
+  background-color: var(--color-maker);
+}
+
+.page-workshop .navigation-global .arrow-color {
+  background-color: var(--color-workshop);
+}
+
+.page-software .navigation-global .arrow-color {
+  background-color: var(--color-software);
 }
 
 /* set button */
 
-.button-arrow {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  padding: 0 var(--margin-right);
-  right: calc(var(--margin-right) * -1);
-}
-
-.arrow-push {
-  transform: rotate(180deg);
-  position: relative;
-  right: -3rem;
-  transition: right 0.4s cubic-bezier(0.4, 0.1, 0.4, 1);
-}
+/* all button arrow */
 
 .arrow-rotate {
   transform: rotate(180deg);
   transition: transform 0.7s cubic-bezier(0.2, 0.4, 0.2, 1);
 }
 
-.button-arrow h1 {
+.button-arrow-l,
+.button-arrow-r {
   position: relative;
+  display: flex;
+  overflow: hidden;
+  padding: 0 var(--margin-right);
+}
+
+.button-arrow-l .arrow-push,
+.button-arrow-r .arrow-push,
+.button-arrow-l h1,
+.button-arrow-r h1 {
+  position: relative;
+}
+
+/* button arrow left */
+
+.button-arrow-l {
+  left: calc(var(--margin-right) * -1);
+}
+
+.button-arrow-l .arrow-push {
+  left: -3rem;
+  transition: left 0.4s cubic-bezier(0.4, 0.1, 0.4, 1);
+}
+
+.button-arrow-l h1 {
+  left: -1.8rem;
+  transition: left 0.4s cubic-bezier(0, 0, 0.2, 1) 0.18s;
+}
+
+.button-arrow-l:hover .arrow-push {
+  left: 0rem;
+}
+
+.button-arrow-l:hover h1 {
+  left: 0.6rem;
+}
+
+/* button arrow right */
+
+.button-arrow-r {
+  right: calc(var(--margin-right) * -1);
+}
+
+.button-arrow-r .arrow-push {
+  transform: rotate(180deg);
+  right: -3rem;
+  transition: right 0.4s cubic-bezier(0.4, 0.1, 0.4, 1);
+}
+
+.button-arrow-r h1 {
   right: -1.8rem;
   transition: right 0.4s cubic-bezier(0, 0, 0.2, 1) 0.18s;
 }
 
-.button-arrow:hover .arrow-push {
+.button-arrow-r:hover .arrow-push {
   right: 0rem;
 }
 
-.button-arrow:hover h1 {
+.button-arrow-r:hover h1 {
   right: 0.6rem;
 }
 
+/******** list button ********/
+
+.ol-button,
+.ul-button {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.ol-button {
+  flex-direction: column;
+}
+
+.ol-button li,
+.ul-button li {
+  margin-top: var(--margin-top);
+}
+
+.ul-button li {
+  margin-right: var(--margin-top);
+}
+
+.ol-button li {
+  margin-left: var(--margin-top);
+}
+
 /*!!!!!!!!!!!!!!!! background page !!!!!!!!!!!!!!!!*/
+
+/******** create grid ********/
+
+.page-board {
+  overflow: hidden;
+}
 
 .background-grid,
 .background-grid div {
@@ -282,24 +515,30 @@ h5 {
   bottom: 0;
 }
 
-.grid-below,
-.background-grid {
-  opacity: 0.44;
+.grid-below {
+  opacity: 0.4;
 }
 
-.grid-s {
-  background-image: url("../import/grid_s.svg");
+.background-grid {
+  opacity: 0.2;
+}
+
+.cross {
+  background-image: url("../import/cross.min.svg");
   background-size: 50px;
 }
 
-/* .grid-l {
-  background-image: url("../import/grid_l.svg");
-  background-size: 120px;
-} */
-
-.grid {
-  background-repeat: repeat;
+.square {
+  background-image: url("../import/square.min.svg");
+  background-size: 50px;
 }
+
+.dot {
+  background-image: url("../import/dot.min.svg");
+  background-size: 50px;
+}
+
+/******** color grid ********/
 
 .page-workshop .grid {
   filter: invert(0.4) sepia(1) saturate(64) hue-rotate(var(--hue-workshop));
@@ -317,11 +556,78 @@ h5 {
   background-color: var(--color-software);
 }
 
+.page-maker .grid {
+  filter: invert(0.4) sepia(1) saturate(64) hue-rotate(var(--hue-maker));
+}
+
+.page-maker .grid-below {
+  background-color: var(--color-maker);
+}
+
+/*!!!!!!!!!!!!!!!! content grid !!!!!!!!!!!!!!!!*/
+
+.content {
+  overflow: hidden;
+}
+
+.loaded {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.32s ease-in-out 0.16s;
+}
+
+.page-neutral .background {
+  background-color: var(--color-neutral);
+}
+
+.page-workshop .background {
+  background-color: var(--color-workshop);
+}
+
+.page-software .background {
+  background-color: var(--color-software);
+}
+
+.page-maker .background {
+  background-color: var(--color-maker);
+}
+
+.visual {
+  width: max(400px, 30vw);
+}
+
+.article {
+  width: 60vw;
+  height: 60vh;
+}
+
+.loaded video,
+.loaded img,
+.loaded .instruction {
+  border-radius: var(--border-radius);
+  border: var(--line-weight) solid var(--color-base);
+}
+
+.loaded img,
+.loaded video,
+.loaded .instruction {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top {
+  z-index: 3;
+}
+.bottom {
+  z-index: 2;
+}
+
 /*!!!!!!!!!!!!!!!! index !!!!!!!!!!!!!!!!*/
 
 /******** global ********/
 
-.global.page-index {
+.page-index {
   overflow: hidden;
 }
 
@@ -341,47 +647,23 @@ h5 {
   mix-blend-mode: multiply;
 }
 
-video {
+.page-index video {
   z-index: -1;
   object-fit: cover;
 }
 
-/******** navigation ********/
+/* menu */
 
-.navigation {
+.navigation-menu {
   position: relative;
-  z-index: 2;
   display: flex;
   padding: var(--margin-top) var(--margin-right);
   justify-content: space-between;
 }
 
-/* top bar */
-
-.logo {
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-}
-
-.logo h5 {
-  margin-left: var(--margin-top);
-}
-
-.top-bar h5,
-.top-bar h1 {
-  color: var(--color-neutral);
-}
-
-/* menu */
-
-.menu .navigation {
-  padding: var(--margin-top) var(--margin-right);
-}
-
 .menu {
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   top: 0;
   left: 100vw;
   width: max(440px, 40vw);
@@ -397,53 +679,205 @@ video {
   padding: calc(var(--margin-right) * 1.2) var(--margin-right);
 }
 
-/* liste menu */
-
-.ul-button {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
+.menu .software .button {
+  background-color: var(--color-software);
 }
 
-.ul-button li {
-  list-style-type: none;
-  margin-right: var(--margin-top);
+.menu .workshop .button {
+  background-color: var(--color-workshop);
+}
+
+.menu .workshop .button:hover,
+.menu .software .button:hover {
+  background-color: var(--color-neutral);
+}
+
+/*!!!!!!!!!!!!!!!! page board !!!!!!!!!!!!!!!!*/
+
+.page-board,
+.background-grid div {
+  width: var(--board-scale-x);
+  height: var(--board-scale-y);
+  overflow: hidden;
+}
+
+/******** minimap ********/
+
+#minimap {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 100;
+  border-radius: var(--border-radius);
+  transition: bottom right 1s ease-in-out;
+}
+
+/*!!!!!!!!!!!!!!!! instruction !!!!!!!!!!!!!!!!*/
+
+.instruction {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.instruction a,
+.instruction a:visited {
+  font-family: "CompagnonMedium";
+  color: var(--color-base);
+  text-decoration: underline;
+}
+
+.instruction a.button {
+  text-decoration: none;
+}
+
+.instruction figure {
+  width: calc(100% - var(--margin-right) * 2);
+  margin: var(--margin-right) var(--margin-top);
+  margin-top: calc(var(--margin-right) * 2);
+}
+
+.instruction img {
+  border-radius: 0;
+}
+
+.container-instruction {
+  position: relative;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.instruction header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.instruction .button {
+  margin-top: var(--margin-right);
+}
+
+.instruction .software .button {
+  background-color: var(--color-software);
+}
+
+.instruction .software .button:hover {
+  background-color: var(--color-workshop);
+}
+
+.summary {
+  position: absolute;
+  left: calc(-20vw - var(--margin-right) * 2);
+  width: calc(20vw - var(--margin-right));
+  height: min-content;
+  padding: var(--margin-right);
+  padding-top: 0;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.summary h2 {
+  margin: var(--margin-top) 0;
+}
+
+.print {
+  position: absolute;
+  z-index: 1000;
+  left: 10px;
+  bottom: 10px;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  background-color: var(--color-base);
+}
+
+.container {
+  width: calc(1200px);
+  height: calc(600px);
+  margin: 4rem;
+}
+
+.container-intro {
+  text-transform: uppercase;
+  padding: var(--margin-right);
+  box-shadow: 0px 2px 0px var(--color-base);
+}
+
+.container-corps {
+  display: flex;
+}
+
+.logi-infos:last-child {
+  margin-bottom: var(--margin-right);
+}
+
+.container-left {
+  padding: 0 var(--margin-right);
+  width: 60%;
+  box-shadow: 2px 0px 0px var(--color-base);
+  overflow: hidden;
+}
+
+.container-right h1:first-child,
+.container-left h1:not(#presentation) {
   margin-top: var(--margin-top);
 }
 
-/*!!!!!!!!!!!!!!!! workshop !!!!!!!!!!!!!!!!*/
-
-.global.page-workshop,
-.page-workshop .background-grid div {
-  width: var(--workshop-scale-x);
-  height: var(--workshop-scale-y);
+.container-right {
+  padding: 0 var(--margin-right);
+  width: 40%;
   overflow: hidden;
 }
 
-.content {
-  overflow: hidden;
+.logi-infos {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  flex-direction: column;
 }
 
-.loaded {
+.logi-infos p {
+  max-width: 90%;
+  text-align: right;
+}
+
+.container-right li {
+  margin-left: 1.5rem;
+}
+
+.container-right li::before {
+  content: "";
   position: absolute;
-  width: max(30vw, 30vh);
+  width: 1rem;
+  height: 1rem;
+  translate: -1.4rem;
 }
 
-.loaded img {
-  border-radius: var(--border-radius);
-  /* border: var(--line-weight) solid var(--color-base); */
+.container-right li:nth-child(1)::before,
+.container-right li:nth-child(2)::before,
+.container-right li:nth-child(3)::before {
+  outline: 2px solid black;
 }
 
-.loaded img,
-.loaded video {
-  width: 99%;
-  height: 99%;
+.container-right li:nth-child(1)::before {
+  background-color: #00ff7fff;
 }
 
-.top {
-  z-index: 3;
+.container-right li:nth-child(2)::before {
+  background-color: white;
 }
-.bottom {
-  z-index: 2;
+
+.container-right li:nth-child(3)::before {
+  background-color: #00ffffff;
+}
+
+.container-right li:nth-child(4)::before {
+  background-image: url("../workshop_01/instruction/import/version_scheme_arrow.png");
+  background-size: contain;
+}
+
+.container-right li:nth-child(5)::before {
+  background-image: url("../workshop_01/instruction/import/version_scheme_arrow_dotted.png");
+  background-size: contain;
 }
