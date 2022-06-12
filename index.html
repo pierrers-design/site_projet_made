@@ -13,27 +13,27 @@
   </head>
   <body>
     <div class="global page-index page-neutral">
-      <nav class="navigation-global">
-        <div class="logo">
-          <h1>CRÉER LIBRE</h1>
-          <h5>
-            plateforme de médiation <br />
-            autour des logiciels libres
-          </h5>
-        </div>
+      <nav class="navigation-global-l logo">
+        <h1>CRÉER LIBRE</h1>
+        <h5>
+          plateforme de médiation <br />
+          autour des logiciels libres
+        </h5>
+      </nav>
+      <nav class="navigation-global-r">
         <div class="button-arrow-r pointer" onclick="displayMenu()">
-          <h1>MENU</h1>
+          <h1 class="pushed">MENU</h1>
           <i class="arrow arrow-color arrow-push"></i>
         </div>
       </nav>
 
-      <nav class="menu draggable">
+      <nav class="menu">
         <div class="navigation-menu">
           <i class="arrow arrow-color arrow-rotate" onclick="hideMenu()"></i>
           <div>
-            <a href="a_propos.html" class="button-arrow-r pointer">
-              <h1>À PROPOS</h1>
-              <i class="arrow arrow-color arrow-push"></i>
+            <a href="a_propos.php" class="button-arrow-r pointer">
+              <h1 class="pushed">À PROPOS</h1>
+              <i class="arrow arrow-color arrow-push arrow-link"></i>
             </a>
           </div>
         </div>
@@ -46,30 +46,30 @@
         <section class="software">
           <h3>LOGICIELS</h3>
           <ul class="ul-button">
-            <li>
+            <!-- <li>
               <a class="button" href="software/birdfont/birdfont.php"><span class="birdfont">BIRDFONT</span></a>
-            </li>
+            </li> -->
             <li>
               <a class="button" href="software/blender/blender.php"><span class="blender">BLENDER</span></a>
             </li>
-            <li>
+            <!-- <li>
               <a class="button" href="software/gimp/gimp.php"><span class="gimp">GIMP</span></a>
             </li>
             <li>
               <a class="button" href="software/inkscape/inkscape.php"><span class="inkscape">INKSCAPE</span></a>
-            </li>
+            </li> -->
             <li>
               <a class="button" href="software/kdenlive/kdenlive.php"><span class="kdenlive">KDENLIVE</span></a>
             </li>
             <li>
               <a class="button" href="software/krita/krita.php"><span class="krita">KRITA</span></a>
             </li>
-            <li>
+            <!-- <li>
               <a class="button" href="software/penpot/penpot.php"><span class="penpot">PENPOT</span></a>
             </li>
             <li>
               <a class="button" href="software/scribus/scribus.php"><span class="scribus">SCRIBUS</span></a>
-            </li>
+            </li> -->
           </ul>
         </section>
         <section class="workshop">
@@ -92,6 +92,6 @@
 
     <script src="libraries/jquery.min.js"></script>
     <script src="libraries/jquery-ui.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

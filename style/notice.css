@@ -87,7 +87,7 @@ img {
   outline: 4px solid red;
 }
 
-.instruction {
+.article {
   position: relative;
   display: flex;
   width: 100%;
@@ -95,7 +95,7 @@ img {
   overflow: hidden;
 }
 
-.container-instruction {
+.container-article {
   position: relative;
   overflow-y: scroll;
   left: 20%;

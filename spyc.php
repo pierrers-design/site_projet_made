@@ -158,7 +158,7 @@ class Spyc {
      * to convert YAML in a string into a PHP array.  Pretty simple.
      *
      * Note: use this function if you don't want files from the file system
-     * loaded and processed as YAML.  This is of interest to people concerned
+     * visual and processed as YAML.  This is of interest to people concerned
      * about security whose input is from a string.
      *
      *  Usage:

@@ -9,24 +9,46 @@
   <link rel="stylesheet" href="../../style/jquery-ui.css" />
   <link rel="stylesheet" href="../../style/jquery-ui.structure.css" />
   <link rel="stylesheet" href="../../style/jquery-ui.theme.css" />
+  <link rel="stylesheet" href="../../style/interface.css" />
   <link rel="stylesheet" href="../../style/style.css" />
+  <!-- <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script> -->
   <title>Document</title>
 </head>
 
 <body>
   <div class="global page-workshop page-board">
-    <nav class="navigation-global">
-      <div>
-        <a href="../../index.html" class="button-arrow-l logo">
-          <i class="arrow arrow-color arrow-push"></i>
+
+    <nav class="navigation-global-l">
+      <a href="../../index.html" class="button-arrow-l pointer">
+        <i class="arrow arrow-color arrow-push arrow-link"></i>
+        <div class="logo pushed">
           <h1>CRÉER LIBRE</h1>
-        </a>
+          <h5>
+            workshop <br />
+            motion design et typographie animée
+          </h5>
+        </div>
+      </a>
+    </nav>
+
+    <nav class="navigation-global-r">
+      <a href="../../a_propos.php" class="button-arrow-r pointer">
+        <h1 class="pushed">À PROPOS</h1>
+        <i class="arrow arrow-color arrow-push arrow-link"></i>
+      </a>
+    </nav>
+
+    <nav class="navigation-bottom-r">
+      <div class="button-arrow-r pointer open-map">
+        <h1 class="pushed">CARTE</h1>
+        <i class="arrow arrow-color arrow-push arrow-rotate"></i>
       </div>
-      <div>
-        <a href="../../a_propos.html" class="button-arrow-r pointer">
-          <h1>À PROPOS</h1>
-          <i class="arrow arrow-color arrow-push"></i>
-        </a>
+    </nav>
+
+    <nav class="navigation-bottom-l">
+      <div class="button-arrow-l pointer">
+        <i class="arrow arrow-color arrow-push"></i>
+        <h1 class="pushed">INFORMATIONS</h1>
       </div>
     </nav>
 
@@ -44,275 +66,46 @@
       require_once $rootDir . "loadContent.php";
       ?>
 
-      <article class="loaded article">
-        <!-- <nav class="summary background">
-          <ol>
-            <li>
-              <h2 class="workshop01"><a href="#intro">Introduction</a></h2>
-            </li>
-            <li>
-              <h2 class="workshop01"><a href="#presentation">Présentation</a></h2>
-            </li>
-            <li>
-              <h2 class="workshop01"><a href="#theme">Thème</a></h2>
-            </li>
-            <li>
-              <h2 class="workshop01"><a href="#projets">Exemple de projets</a></h2>
-            </li>
-            <li>
-              <h2 class="workshop01"><a href="#logiciels">Logiciels</a></h2>
-            </li>
-            <li>
-              <h2 class="workshop01"><a href="#ressources">Ressources typographique</a></h2>
-            </li>
-          </ol>
-        </nav> -->
-        <div class="instruction background">
-          <div class="container-instruction">
-            <div id="intro" class="container-intro">
-              <header>
-                <h3 class="workshop01 text-smaller">Workshop 01</h3>
-                <h3 class="workshop01 text-smaller">Logiciels libres</h3>
-                <h3 class="workshop01 text-smaller">avril 2022</h3>
-              </header>
-              <h1 class="workshop01">Expérimentations en motion design et typographie animée avec des logiciels libres</h1>
-            </div>
-            <div class="container-corps page1">
-              <div class="container-left">
-                <h1 class="workshop01" id="presentation">Présentation</h1>
-                <p>
-                  Le but est de créer une affiche animée autour du thème du "versionnage". La contrainte sera de réaliser une animation de 8 seconde avec au moins
-                  un glyphe d'une typographie (libre !). Le format, les couleurs, la quantité de texte et le nombre de typographies est libre.
-                  <br />
-                  Le workshop va être séparé en trois temps; l'expérimentation, la réalisation, et le montage.
-                </p>
-                <h1 class="workshop01" id="theme">Thème</h1>
-                <h2 class="workshop01">Qu’est-ce que le versionnage&#8239;?</h2>
-                <p>
-                  Le versionnage est un concept qui est devenu très important avec la montée en puissance de l’informatique. L’objectif est d’enregistrer et
-                  d’itérer sur différentes versions d’un projet, d’un code ou de fichiers, lorsque l’auteur en a besoin, sans nécessairement le dupliquer grâce à
-                  l’utilisation de fichiers de sauvegarde dans le cas de l’informatique.
-                </p>
-                <p>
-                  Ce système permet ainsi d’avoir accès à un historique des versions d’un système de fichier, et est très utilisé notamment dans le domaine du
-                  libre, puisqu’il va permettre la simplification du développement collaboratif, notamment avec les gestionnaires de versions décentralisés.
-                </p>
-                <h2 class="workshop01">Historique du logiciel de versionnage avec Git</h2>
-                <p>
-                  Git est un logiciel de versionnage décentralisé et en lignes de commande créé en 2005 par Linus Torvald pour le développement de Linux. D’autres
-                  systèmes similaires existaient alors déjà (le premier ayant été créé en 1972), mais les plus performants étaient souvent très chers et
-                  proposaient un système fermé et/ou centralisé.
-                </p>
-                <p>
-                  Git a su se démarquer par un fonctionnement décentralisé et en pair-à-pair, qui s’inscrit dans la démarche libre. Il est depuis 2016 le logiciel
-                  de versionnage le plus utilisé.
-                </p>
-                <h1 class="workshop01" id="projets">Exemple de projets</h1>
-                <p>
-                  Pour représenter cette notion de versionnage, vous pourrez jouer avec des changements d'état, de forme, de typographie, de point de vue ...
-                  Voici quelques exemples de projets divers qui questionnent ou représentent la notion de versionnage.
-                </p>
-                <h2 class="workshop01">Neocities</h2>
-                <p>
-                  Cette page web présente différentes compositions des mêmes éléments. Le changement d’état des formes est mis en avant par la transition d’un
-                  état à l’autre.
-                  <br />
-                  <a href="https://declin-sequence.neocities.org/" target="_blank">declin-sequence.neocities.org</a>
-                </p>
-                <h2 class="workshop01">Linux distros</h2>
-                <p>
-                  Fichier SVG permettant la visualisation des différentes versions (nommées distributions) de systèmes d’exploitations basés sur le noyau Linux.
-                  <br />
-                  <a href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg" target="_blank">upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg</a>
-                </p>
-                <h2 class="workshop01">Soft Corruptor</h2>
-                <p>
-                  Ce projet propose une histoire dont on va pouvoir découvrir différentes versions au fur et à mesure que l’on déroule les différents éléments qui
-                  nous sont proposés.
-                  <br />
-                  <a href="http://cordite.org.au/poetry/game/soft-corruptor/" target="_blank">cordite.org.au/poetry/game/soft-corruptor</a>
-                </p>
-                <h2 class="workshop01">Diff</h2>
-                <p>
-                  Installation permettant de visualiser différentes organisations/versions d’une scène, avec des changement de positions et d’état des éléments
-                  qui composent les scènes.
-                  <br />
-                  <a href="https://raphaelbastide.com/diff/" target="_blank">raphaelbastide.com/diff</a>
-                </p>
-              </div>
-              <div class="container-right">
-                <h2 class="workshop01">Exemple d’un arbre de gestion de versions.</h2>
-                <figure>
-                  <img src="../workshop_01/instruction/import/version_scheme_vertical.png">
-                </figure>
-
-                <ul>
-                  <li>
-                    <p>branche principale (trunk)</p>
-                  </li>
-                  <li>
-                    <p>nouvelle version (branche)</p>
-                  </li>
-                  <li>
-                    <p>nouveau programme (fork)</p>
-                  </li>
-                  <li>
-                    <p>nouvelles versions</p>
-                  </li>
-                  <li>
-                    <p>fusion des versions (merge)</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="container-corps page2 break">
-              <div class="container-left">
-                <h1 class="workshop01" id="logiciels">Les logiciels</h1>
-
-                <div class='software'><a class='button' href='../../software/krita/krita.php'><span class='krita'>Krita</span></a></div>
-                <p>
-                  Krita est un logiciel de retouche d’images matriciels principalement destiné au dessin numérique et l’animation 2D. Il est disponible pour la
-                  première fois en 2004, et supervisé par la Krita Foundation depuis 2012. Il peut servir d’alternative à Photoshop, Affinity Photo et ClipStudio
-                  Paint.
-                </p>
-                <div class="logi-infos">
-                  <p>
-                    Site Web
-                    <br />
-                    <a href="https://krita.org/fr/" target="_blank">krita.org/fr</a> [fr]
-                  </p>
-                  <p>
-                    Documentation
-                    <br />
-                    <a href="https://docs.krita.org/fr/index.html" target="_blank">docs.krita.org/fr/index.html</a> [fr]
-                  </p>
-                  <p>
-                    En savoir plus
-                    <br />
-                    <a href="https://fr.wikipedia.org/wiki/Krita" target="_blank">fr.wikipedia.org/wiki/Krita</a> [fr]
-                    <br />
-                    <a href="https://github.com/KDE/krita" target="_blank">github.com/KDE/krita</a> [en]
-                  </p>
-                </div>
-
-                <div class='software'><a class='button' href='../../software/krita/krita.php'><span class='krita'>G'Mic</span></a></div>
-                <p>
-                  G’Mic est un ensemble de micro-logiciels libre dédié au traitement d’image, qui peut être utilisé en ligne de commandes ou rattaché sous forme
-                  de plugins à divers programmes. Depuis 2008, il est principalement développé par le laboratoire GREYC, notamment affilié au CNRS.
-                </p>
-                <div class="logi-infos">
-                  <p>
-                    Site Web
-                    <br />
-                    <a href="https://gmic.eu/" target="_blank">gmic.eu</a> [en]
-                  </p>
-
-                  <p>
-                    Documentation
-                    <br />
-                    <a href="https://www.youtube.com/c/GMIC_software" target="_blank">youtube.com/c/GMIC_software</a> [en]
-                    <br />
-                    <a href="https://github.com/dtschump/gmic-community/wiki" target="_blank">github.com/dtschump/gmic-community/wiki</a> [en]
-                  </p>
-                  <p>
-                    En savoir plus
-                    <br />
-                    <a href="https://fr.wikipedia.org/wiki/G'MIC" target="_blank">fr.wikipedia.org/wiki/G'MIC</a> [fr]
-                    <br />
-                    <a href="https://github.com/dtschump/gmic" target="_blank">github.com/dtschump/gmic</a> [en]
-                  </p>
-                </div>
-
-                <div class='software'><a class='button' href='../../software/blender/blender.php'><span class='blender'>Blender</span></a></div>
-                <p>
-                  Blender est un logiciel de création 3D multitâche (modélisation, animation, rendu) créé en 1994 par Ton Roosendaal. Il est aujourd’hui l’un des
-                  logiciels libres de création le plus réputé et utilisé face aux alternatives propriétaires tels que Maya, Cinema4D, 3DS Max, Zbrush et Houdini.
-                </p>
-                <div class="logi-infos">
-                  <p>
-                    Site Web
-                    <br />
-                    <a href="https://www.blender.org/" target="_blank">blender.org</a> [en]
-                  </p>
-
-                  <p>
-                    Documentation
-                    <br />
-                    <a href="https://docs.blender.org/manual/fr/latest/" target="_blank">docs.blender.org/manual/fr/latest</a> [fr]
-                  </p>
-                  <p>
-                    En savoir plus
-                    <br />
-                    <a href="https://fr.wikipedia.org/wiki/Blender" target="_blank">fr.wikipedia.org/wiki/Blender</a> [fr]
-                    <br />
-                    <a href="https://github.com/blender/blender" target="_blank">github.com/blender/blender</a> [en]
-                  </p>
-                </div>
-
-                <div class='software'><a class='button' href='../../software/kdenlive/kdenlive.php'><span class='kdenlive'>Kdenlive</span></a></div>
-                <p>
-                  Kdenlive est un logiciel de montage vidéo créé en 2002 par Jean-Baptiste Mardelle. Il permet de gérer des images, vidéos et sons, mais aussi d’y
-                  appliquer des effets. Il peut servir d’alternative à des logiciels comme Premiere Pro, Sony Vegas et Davinci Resolve.
-                </p>
-                <div class="logi-infos">
-                  <p>
-                    Site Web
-                    <br />
-                    <a href="https://kdenlive.org/fr/" target="_blank">kdenlive.org/fr</a> [fr]
-                  </p>
-                  <p>
-                    Documentation
-                    <br />
-                    <a href="https://docs.kdenlive.org/fr/" target="_blank">docs.kdenlive.org/fr</a> [fr]
-                  </p>
-                  <p>
-                    En savoir plus
-                    <br />
-                    <a href="https://fr.wikipedia.org/wiki/Kdenlive" target="_blank">fr.wikipedia.org/wiki/Kdenlive</a> [fr]
-                    <br />
-                    <a href="https://github.com/KDE/kdenlive" target="_blank">github.com/KDE/kdenlive</a> [en]
-                  </p>
-                </div>
-              </div>
-              <div class="container-right">
-                <h1 class="workshop01" id="ressources">RESSOURCES TYPOGRAPHIQUE</h1>
-                <h2 class="workshop01">Collletttivo</h2>
-                <p><a href="https://www.collletttivo.it/" target="_blank">collletttivo.it</a></p>
-                <h2 class="workshop01">Fond de riz</h2>
-                <p><a href="https://fonderiz.fr/" target="_blank">fonderiz.fr</a></p>
-                <h2 class="workshop01">fonderie download</h2>
-                <p><a href="https://www.fonderie.download/" target="_blank">fonderie.download</a></p>
-                <h2 class="workshop01">FontsArena</h2>
-                <p><a href="https://fontsarena.com/" target="_blank">fontsarena.com</a></p>
-                <h2 class="workshop01">Font Library</h2>
-                <p><a href="https://fontlibrary.org/" target="_blank">fontlibrary.org</a></p>
-                <h2 class="workshop01">Luuse Font Library</h2>
-                <p><a href="https://typotheque.luuse.fun/" target="_blank">typotheque.luuse.fun</a></p>
-                <h2 class="workshop01">MontiFonti</h2>
-                <p><a href="https://montifonti.tilda.ws/" target="_blank">montifonti.tilda.ws</a></p>
-                <h2 class="workshop01">Omnibus-Type</h2>
-                <p><a href="https://www.omnibus-type.com/" target="_blank">omnibus-type.com</a></p>
-                <h2 class="workshop01">Open Foundry</h2>
-                <p><a href="https://open-foundry.com/fonts" target="_blank">open-foundry.com/fonts</a></p>
-                <h2 class="workshop01">The League of Moveable Type</h2>
-                <p><a href="https://www.theleagueofmoveabletype.com/" target="_blank">theleagueofmoveabletype.com</a></p>
-                <h2 class="workshop01">Tunera Type Foundry</h2>
-                <p><a href="http://www.tunera.xyz/" target="_blank">tunera.xyz</a></p>
-                <h2 class="workshop01">Use & Modify</h2>
-                <p><a href="https://usemodify.com/" target="_blank">usemodify.com</a></p>
-                <h2 class="workshop01">Velvetyne</h2>
-                <p><a href="http://velvetyne.fr/" target="_blank">velvetyne.fr</a></p>
-                <h2 class="workshop01">Warsaw Types</h2>
-                <p><a href="https://kroje.org/en/" target="_blank">kroje.org/en</a></p>
-                <h2 class="workshop01">WOMXN</h2>
-                <p><a href="https://www.design-research.be/by-womxn/" target="_blank">design-research.be/by-womxn</a></p>
-              </div>
-            </div>
-          </div>
-      </article>
-
     </section>
+
+    <article class="container-article background">
+
+      <nav class="close-article background">
+        <span class="button-fullscreen pointer">⬓</span>
+        <span class="button-print pointer">IMPRIMER</span>
+        <i class="arrow arrow-color arrow-rotate pointer"></i>
+      </nav>
+
+      <iframe class="instruction-print" src="" frameborder="0"></iframe>
+
+      <nav class="summary">
+        <ol>
+          <li>
+            <p><a href="#intro">Introduction</a></p>
+          </li>
+          <li>
+            <p><a href="#presentation">Présentation</a></p>
+          </li>
+          <li>
+            <p><a href="#theme">Thème</a></p>
+          </li>
+          <li>
+            <p><a href="#projets">Exemples de versionnage</a></p>
+          </li>
+          <li>
+            <p><a href="#logiciels">Logiciels</a></p>
+          </li>
+          <li>
+            <p><a href="#ressources">Ressources typographique</a></p>
+          </li>
+        </ol>
+      </nav>
+
+      <?php
+      require_once "instruction/content_instruction.php";
+      ?>
+
+    </article>
 
     <?php
     require_once $rootDir . "loadGrid.php";
@@ -322,7 +115,7 @@
   <script src="../../libraries/jquery.min.js"></script>
   <script src="../../libraries/jquery-ui.min.js"></script>
   <script src="../../libraries/pagemap-1.4.0.min.js"></script>
-  <script type="module" src="../../js/content.js"></script>
+  <script type="module" src="../../js/script.js"></script>
 </body>
 
 </html>

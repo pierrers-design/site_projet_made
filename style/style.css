@@ -4,7 +4,6 @@
   font-family: "Inter";
   font-weight: 100 900;
   font-display: swap;
-  font-style: oblique 0deg 10deg;
   src: url("../font/Inter.var.woff2") format("woff2");
 }
 
@@ -49,24 +48,50 @@
   src: url("../font/Compagnon-Medium.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "CompagnonRoman";
+  src: url("../font/Compagnon-Roman.woff2") format("woff2");
+}
+
 :root {
-  --color-base: black;
   --color-none: rgba(0, 0, 0, 0);
-  --hue-maker: 0deg;
+  /* --hue-maker: 0deg;
   --hue-software: 80deg;
   --hue-neutral: 160deg;
-  --hue-workshop: 240deg;
+  --hue-workshop: 240deg; */
+  --hue-maker: 350deg;
+  --hue-software: 170deg;
+  --hue-neutral: 110deg;
+  --hue-workshop: 50deg;
+  /***********************/
   --color-maker: hsl(var(--hue-maker), 60%, 80%);
+  --color-software: hsl(var(--hue-software), 50%, 70%);
   --color-neutral: hsl(var(--hue-neutral), 60%, 80%);
-  --color-software: hsl(var(--hue-software), 60%, 80%);
-  --color-workshop: hsl(var(--hue-workshop), 60%, 80%);
-  --line-weight: 0px;
-  --margin-top: 0.8rem;
-  --margin-right: calc(var(--margin-top) * 1.375);
-  --floating-space: 0.6rem;
+  --color-workshop: hsl(var(--hue-workshop), 80%, 76%);
+  /***********************/
+  --color-title-maker: hsl(var(--hue-maker), 62%, 78%);
+  --color-title-software: hsl(var(--hue-software), 52%, 68%);
+  --color-title-neutral: hsl(var(--hue-neutral), 62%, 78%);
+  --color-title-workshop: hsl(var(--hue-workshop), 84%, 70%);
+  /***********************/
+  --color-text-maker: hsl(var(--hue-maker), 80%, 30%);
+  --color-text-software: hsl(var(--hue-software), 80%, 20%);
+  --color-text-neutral: hsl(var(--hue-neutral), 80%, 20%);
+  --color-text-workshop: hsl(var(--hue-workshop), 80%, 20%);
+  /***********************/
+  --line-weight: 2px;
+  /***********************/
+  --margin-medium: 0.8rem;
+  --margin-large: calc(var(--margin-medium) * 1.375);
+  --margin-small: calc(var(--margin-medium) * 0.75);
+  /***********************/
   --border-radius: 0.4rem;
-  --board-scale-x: 400vw;
-  --board-scale-y: 400vh;
+  /***********************/
+  --width-article-medium: max(440px, 40vw);
+  --width-article-small: calc(var(--width-article-medium) / 1.4);
+  --width-summary: 8rem;
+  --width-article-medium-full: calc(var(--width-article-medium) + var(--width-summary));
+  --width-article-small-full: calc(var(--width-article-small) + var(--width-summary));
 }
 
 ul,
@@ -79,6 +104,16 @@ figure {
 ul,
 ol {
   list-style-type: none;
+}
+
+a:not([class*="button"]) {
+  word-wrap: break-word;
+  font-style: oblique 0deg;
+  transition: font-style 0.16s ease-in-out;
+}
+
+a:hover:not([class*="button"]) {
+  font-style: oblique;
 }
 
 /*!!!!!!!!!!!!!!!! scrollbar !!!!!!!!!!!!!!!!*/
@@ -97,10 +132,10 @@ ol {
   background: var(--color-none);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-base);
+  background: var(--color-none);
 }
 * {
-  scrollbar-color: var(--color-base) var(--color-none);
+  scrollbar-color: var(--color-none) var(--color-none);
 }
 
 /*!!!!!!!!!!!!!!!! simplebar !!!!!!!!!!!!!!!!*/
@@ -135,7 +170,6 @@ a,
 a::after,
 a {
   text-decoration: none;
-  color: var(--color-base);
 }
 
 h1,
@@ -146,7 +180,6 @@ h5,
 p,
 span {
   font-family: "Inter";
-  color: var(--color-base);
   margin: 0;
 }
 
@@ -162,15 +195,22 @@ h5 {
 }
 
 p,
-a:not(.button) {
+.article a:not(.button) {
   font-size: 1.1rem;
   line-height: 1.5rem;
 }
 
-.instruction h1,
-.instruction h2,
-.instruction p {
-  margin-top: var(--margin-top);
+.article h2,
+.article p {
+  margin-top: var(--margin-medium);
+}
+
+.article h1 {
+  padding-top: var(--margin-small);
+}
+
+.article h1:not(.intro h1) {
+  margin-top: var(--margin-medium);
 }
 
 /******** specific text ********/
@@ -248,25 +288,23 @@ a:not(.button) {
   text-transform: uppercase;
 }
 
-.instruction li a {
+.article li a {
   word-wrap: break-word;
   hyphens: auto;
 }
 
-/*!!!!!!!!!!!!!!!! navigation !!!!!!!!!!!!!!!!*/
-
-/******** top bar ********/
-
-.navigation-global {
-  position: fixed;
-  z-index: 5;
-  display: flex;
-  width: calc(100% - var(--margin-right) * 2);
-  padding: var(--margin-top) var(--margin-right);
-  justify-content: space-between;
+.container-last p {
+  margin-top: 0.2rem;
 }
 
-/* top bar */
+/*!!!!!!!!!!!!!!!! navigation !!!!!!!!!!!!!!!!*/
+
+[class*="navigation-"] {
+  position: fixed;
+  z-index: 10;
+  width: max-content;
+  padding: var(--margin-medium) var(--margin-large);
+}
 
 .logo {
   display: flex;
@@ -274,38 +312,37 @@ a:not(.button) {
 }
 
 .logo h5 {
-  margin-left: var(--margin-top);
+  margin-left: var(--margin-medium);
 }
 
-.page-maker .navigation-global h5,
-.page-maker .navigation-global h1 {
-  color: var(--color-maker);
+.navigation-global-l {
+  left: 0;
+  top: 0;
 }
 
-.page-neutral .navigation-global h5,
-.page-neutral .navigation-global h1 {
-  color: var(--color-neutral);
+.navigation-global-r {
+  right: 0;
+  top: 0;
 }
 
-.page-workshop .navigation-global h5,
-.page-workshop .navigation-global h1 {
-  color: var(--color-workshop);
+.navigation-bottom-r {
+  right: 0;
+  bottom: 0;
 }
 
-.page-software .navigation-global h5,
-.page-software .navigation-global h1 {
-  color: var(--color-software);
+.navigation-bottom-l {
+  left: 0;
+  bottom: 0;
 }
 
 /******** global button ********/
 
 .button {
   display: block;
-  height: calc(var(--margin-top) * 2);
+  height: calc(var(--margin-medium) * 2);
   width: max-content;
-  border: var(--line-weight) solid var(--color-base);
   border-radius: var(--border-radius);
-  padding: var(--margin-top);
+  padding: var(--margin-medium);
   transition: background-color 0.08s ease-in-out;
 }
 
@@ -321,7 +358,7 @@ a:not(.button) {
   transition: opacity 0.08s ease-in-out;
 }
 
-.loaded:hover .button-file {
+.visual:hover .button-file {
   opacity: 1;
 }
 
@@ -353,6 +390,20 @@ a:not(.button) {
   background-color: var(--color-software);
 }
 
+.article .software .button {
+  background-color: var(--color-software);
+}
+.article .software .button:hover {
+  background-color: var(--color-workshop);
+}
+
+.page-maker .article .workshop .button {
+  background-color: var(--color-workshop);
+}
+.page-maker .article .workshop .button:hover {
+  background-color: var(--color-maker);
+}
+
 .maker .button,
 .neutral .button,
 .workshop .button {
@@ -368,36 +419,20 @@ a:not(.button) {
 /* def arrow*/
 
 .arrow {
+  display: inline-block;
   width: 1.8rem;
   height: 1.8rem;
   -webkit-mask: url("../import/arrow.svg") no-repeat;
   mask: url("../import/arrow.svg") no-repeat;
   -webkit-mask-size: cover;
   mask-size: cover;
-  border: 1px solid var(--color-neutral);
+  border: var(--line-weight) solid var(--color-neutral);
+  margin-top: 1px;
 }
 
-.arrow-color {
-  background-color: var(--color-base);
+.navigation-menu {
+  width: calc(100% - var(--margin-large) * 2);
 }
-
-.page-neutral .navigation-global .arrow-color {
-  background-color: var(--color-neutral);
-}
-
-.page-maker .navigation-global .arrow-color {
-  background-color: var(--color-maker);
-}
-
-.page-workshop .navigation-global .arrow-color {
-  background-color: var(--color-workshop);
-}
-
-.page-software .navigation-global .arrow-color {
-  background-color: var(--color-software);
-}
-
-/* set button */
 
 /* all button arrow */
 
@@ -411,20 +446,20 @@ a:not(.button) {
   position: relative;
   display: flex;
   overflow: hidden;
-  padding: 0 var(--margin-right);
+  padding: 0 var(--margin-large);
 }
 
 .button-arrow-l .arrow-push,
 .button-arrow-r .arrow-push,
-.button-arrow-l h1,
-.button-arrow-r h1 {
+.button-arrow-l .pushed,
+.button-arrow-r .pushed {
   position: relative;
 }
 
 /* button arrow left */
 
 .button-arrow-l {
-  left: calc(var(--margin-right) * -1);
+  left: calc(var(--margin-large) * -1);
 }
 
 .button-arrow-l .arrow-push {
@@ -432,7 +467,7 @@ a:not(.button) {
   transition: left 0.4s cubic-bezier(0.4, 0.1, 0.4, 1);
 }
 
-.button-arrow-l h1 {
+.button-arrow-l .pushed {
   left: -1.8rem;
   transition: left 0.4s cubic-bezier(0, 0, 0.2, 1) 0.18s;
 }
@@ -441,23 +476,23 @@ a:not(.button) {
   left: 0rem;
 }
 
-.button-arrow-l:hover h1 {
+.button-arrow-l:hover .pushed {
   left: 0.6rem;
 }
 
 /* button arrow right */
 
 .button-arrow-r {
-  right: calc(var(--margin-right) * -1);
+  right: calc(var(--margin-large) * -1);
 }
 
 .button-arrow-r .arrow-push {
   transform: rotate(180deg);
   right: -3rem;
-  transition: right 0.4s cubic-bezier(0.4, 0.1, 0.4, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0.1, 0.4, 1);
 }
 
-.button-arrow-r h1 {
+.button-arrow-r .pushed {
   right: -1.8rem;
   transition: right 0.4s cubic-bezier(0, 0, 0.2, 1) 0.18s;
 }
@@ -468,6 +503,19 @@ a:not(.button) {
 
 .button-arrow-r:hover h1 {
   right: 0.6rem;
+}
+
+.navigation-bottom-r .arrow-rotate {
+  transform: rotate(0deg);
+}
+
+.navigation-global-l .arrow-link {
+  transform: rotate(-45deg);
+}
+
+.navigation-menu .arrow-link,
+.navigation-global-r .arrow-link {
+  transform: rotate(-135deg);
 }
 
 /******** list button ********/
@@ -486,15 +534,124 @@ a:not(.button) {
 
 .ol-button li,
 .ul-button li {
-  margin-top: var(--margin-top);
+  margin-top: var(--margin-medium);
 }
 
 .ul-button li {
-  margin-right: var(--margin-top);
+  margin-right: var(--margin-medium);
 }
 
 .ol-button li {
-  margin-left: var(--margin-top);
+  margin-left: var(--margin-medium);
+}
+
+/*!!!!!!!!!!!!!!!! interface / text color !!!!!!!!!!!!!!!!*/
+
+/******** text ********/
+
+.page-maker,
+.page-maker a {
+  color: var(--color-text-maker);
+}
+
+.page-neutral,
+.page-neutral a {
+  color: var(--color-text-neutral);
+}
+
+.page-workshop,
+.page-workshop a {
+  color: var(--color-text-workshop);
+}
+
+.page-software,
+.page-software a {
+  color: var(--color-text-software);
+}
+
+.page-maker [class*="navigation-"] h5,
+.page-maker [class*="navigation-"] h1 {
+  color: var(--color-title-maker);
+}
+
+.page-neutral [class*="navigation-"] h5,
+.page-neutral [class*="navigation-"] h1 {
+  color: var(--color-title-neutral);
+}
+
+.page-workshop [class*="navigation-"] h5,
+.page-workshop [class*="navigation-"] h1 {
+  color: var(--color-title-workshop);
+}
+
+.page-software [class*="navigation-"] h5,
+.page-software [class*="navigation-"] h1 {
+  color: var(--color-title-software);
+}
+
+.navigation-menu h1 {
+  color: var(--color-text-neutral) !important;
+}
+
+/******** interface ********/
+
+.page-neutral .container-article .arrow-color,
+.page-neutral .menu .arrow-color {
+  background-color: var(--color-text-neutral);
+}
+.page-neutral .arrow-color {
+  background-color: var(--color-title-neutral);
+}
+
+.page-maker .container-article .arrow-color,
+.page-maker .menu .arrow-color {
+  background-color: var(--color-text-maker);
+}
+.page-maker .arrow-color {
+  background-color: var(--color-title-maker);
+}
+
+.page-workshop .container-article .arrow-color,
+.page-workshop .menu .arrow-color {
+  background-color: var(--color-text-workshop);
+}
+.page-workshop .arrow-color {
+  background-color: var(--color-title-workshop);
+}
+
+.page-software .container-article .arrow-color,
+.page-software .menu .arrow-color {
+  background-color: var(--color-text-software);
+}
+.page-software .arrow-color {
+  background-color: var(--color-title-software);
+}
+
+.page-neutral {
+  border-color: var(--color-text-neutral);
+  outline-color: var(--color-text-neutral);
+}
+
+.page-maker {
+  border-color: var(--color-text-maker);
+  outline-color: var(--color-text-maker);
+}
+
+.page-workshop {
+  border-color: var(--color-text-workshop);
+  outline-color: var(--color-text-workshop);
+}
+
+.page-software {
+  border-color: var(--color-text-software);
+  outline-color: var(--color-text-software);
+}
+
+/******** fullscreen ********/
+
+.button-fullscreen {
+  transform: rotate(0deg);
+  transition: transform 0.7s cubic-bezier(0.2, 0.4, 0.2, 1);
 }
 
 /*!!!!!!!!!!!!!!!! background page !!!!!!!!!!!!!!!!*/
@@ -508,19 +665,11 @@ a:not(.button) {
 .background-grid,
 .background-grid div {
   position: absolute;
-  z-index: -100;
+  z-index: -1;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-}
-
-.grid-below {
-  opacity: 0.4;
-}
-
-.background-grid {
-  opacity: 0.2;
 }
 
 .cross {
@@ -540,40 +689,122 @@ a:not(.button) {
 
 /******** color grid ********/
 
-.page-workshop .grid {
-  filter: invert(0.4) sepia(1) saturate(64) hue-rotate(var(--hue-workshop));
+.grid-below {
+  opacity: 0.08;
+  filter: saturate(256);
 }
 
+.background-grid {
+  opacity: 0.16;
+}
+
+.grid {
+  --filter-grid: invert(0.4) sepia(1) saturate(64);
+}
+
+.page-workshop .grid {
+  filter: var(--filter-grid) hue-rotate(var(--hue-workshop)) brightness(1.6);
+}
 .page-workshop .grid-below {
   background-color: var(--color-workshop);
 }
 
 .page-software .grid {
-  filter: invert(0.4) sepia(1) saturate(64) hue-rotate(var(--hue-software));
+  filter: var(--filter-grid) hue-rotate(var(--hue-software)) brightness(1.2);
 }
-
 .page-software .grid-below {
   background-color: var(--color-software);
 }
 
 .page-maker .grid {
-  filter: invert(0.4) sepia(1) saturate(64) hue-rotate(var(--hue-maker));
+  filter: var(--filter-grid) hue-rotate(var(--hue-maker)) brightness(1);
 }
-
 .page-maker .grid-below {
   background-color: var(--color-maker);
 }
 
+.page-neutral .grid {
+  filter: var(--filter-grid) hue-rotate(var(--hue-neutral)) brightness(1);
+}
+.page-neutral .grid-below {
+  background-color: var(--color-neutral);
+}
+
 /*!!!!!!!!!!!!!!!! content grid !!!!!!!!!!!!!!!!*/
+
+/******** visuals ********/
 
 .content {
   overflow: hidden;
 }
 
-.loaded {
+.visual {
   position: absolute;
   opacity: 0;
   transition: opacity 0.32s ease-in-out 0.16s;
+}
+
+.visual {
+  width: max(400px, 30vw);
+}
+
+.visual video,
+.visual img {
+  border-radius: var(--border-radius);
+}
+
+.visual img,
+.visual video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top {
+  z-index: 3;
+}
+.bottom {
+  z-index: 2;
+}
+
+/*!!!!!!!!!!!!!!!! article !!!!!!!!!!!!!!!!*/
+
+/******** global ********/
+
+.container-article {
+  position: fixed;
+  z-index: 12;
+  height: calc(100vh - var(--margin-medium) * 5);
+  width: var(--width-article-small-full);
+  left: calc(var(--width-article-small-full) * -1 - var(--margin-small) * 2);
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  margin: var(--margin-small);
+  transition: left 0.8s cubic-bezier(0.2, 0.4, 0.2, 1);
+  border-radius: var(--border-radius);
+}
+
+.article {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100% - var(--margin-medium) * 5);
+  margin-left: calc(var(--width-summary) + var(--margin-large));
+  padding: var(--margin-small) var(--margin-large);
+}
+
+.article-fullscreen {
+  margin: 0;
+  padding: var(--margin-small) 30vw;
+}
+
+.none {
+  display: none;
+}
+
+.article p {
+  width: 90%;
 }
 
 .page-neutral .background {
@@ -592,35 +823,198 @@ a:not(.button) {
   background-color: var(--color-maker);
 }
 
-.visual {
-  width: max(400px, 30vw);
+/******** close article ********/
+
+.close-article {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 15;
+  border-top-width: var(--line-weight);
+  border-top-style: solid;
+  padding: var(--margin-medium);
+  width: calc(100% - var(--margin-medium) * 2);
+  height: min-content;
+  transition: left 0.8s cubic-bezier(0.2, 0.4, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.article {
-  width: 60vw;
-  height: 60vh;
+.button-fullscreen {
+  font-size: 2rem;
 }
 
-.loaded video,
-.loaded img,
-.loaded .instruction {
-  border-radius: var(--border-radius);
-  border: var(--line-weight) solid var(--color-base);
-}
+/******** fullscreen article ********/
 
-.loaded img,
-.loaded video,
-.loaded .instruction {
+.fullscreen {
+  margin: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
-.top {
-  z-index: 3;
+/******** summary article ********/
+
+.summary {
+  position: absolute;
+  left: 0;
+  width: var(--width-summary);
+  height: 100%;
+  z-index: 13;
+  padding-left: var(--margin-large);
+  padding-top: 0;
+  overflow: hidden;
 }
-.bottom {
-  z-index: 2;
+
+.summary p {
+  margin: var(--margin-small) 0;
+}
+
+.summary li::after {
+  content: "";
+  position: relative;
+  display: block;
+  height: 2rem;
+  width: var(--margin-small);
+  border-right-width: var(--line-weight);
+  border-right-style: solid;
+}
+
+.summary li:last-child::after {
+  height: 100vh;
+}
+
+/******** article ********/
+
+.article a,
+.article a:visited {
+  font-family: "CompagnonMedium";
+  text-decoration: underline;
+}
+
+.article a.button {
+  text-decoration: none;
+}
+
+.article i {
+  font-style: oblique;
+  font-family: "CompagnonRoman";
+  font-size: 1.14em;
+  letter-spacing: -0.02rem;
+  word-spacing: -0.2rem;
+}
+
+.scheme {
+  width: 100%;
+  display: flex;
+  margin-top: var(--margin-large);
+  overflow-y: hidden;
+  overflow-x: auto;
+  align-items: flex-end;
+}
+
+.scheme figure {
+  height: 60vh;
+  margin-top: var(--margin-medium);
+  margin-right: calc(var(--margin-large) * 2);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+}
+
+.scheme img {
+  border-radius: 0;
+  height: 100%;
+}
+
+.scheme li {
+  position: relative;
+  margin-left: 1.8rem;
+  justify-content: end;
+}
+
+.scheme li span {
+  position: absolute;
+  left: -1.8rem;
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+  outline-width: 2px;
+  mix-blend-mode: multiply;
+}
+
+.scheme li:nth-child(1) span,
+.scheme li:nth-child(2) span,
+.scheme li:nth-child(3) span {
+  outline-color: black;
+  outline-style: solid;
+  top: 0.2rem;
+}
+
+.scheme li:nth-child(1) span {
+  background-color: #00ff7fff;
+}
+
+.scheme li:nth-child(2) span {
+  background-color: white;
+}
+
+.scheme li:nth-child(3) span {
+  background-color: #00ffffff;
+}
+
+.scheme li:nth-child(4) span,
+.scheme li:nth-child(5) span {
+  top: -0.1rem;
+  opacity: 0.8;
+}
+
+.article header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article .button {
+  margin-top: var(--margin-large);
+}
+
+.container {
+  width: calc(1200px);
+  height: calc(600px);
+  margin: 4rem;
+}
+
+.container-intro {
+  text-transform: uppercase;
+}
+
+.page-workshop .container-corps {
+  display: flex;
+  flex-direction: column;
+}
+
+.logi-infos:last-child {
+  margin-bottom: var(--margin-large);
+}
+
+.container-right,
+.container-left {
+  width: 100%;
+  overflow: hidden;
+}
+
+.container-right h1:first-child,
+.container-left h1:not(#presentation) {
+  margin-top: var(--margin-medium);
+}
+
+.logi-infos {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.container-last {
+  padding-bottom: calc(var(--margin-large) * 2);
 }
 
 /*!!!!!!!!!!!!!!!! index !!!!!!!!!!!!!!!!*/
@@ -645,6 +1039,7 @@ a:not(.button) {
 .overlay {
   background-color: var(--color-neutral);
   mix-blend-mode: multiply;
+  opacity: 0.4;
 }
 
 .page-index video {
@@ -657,26 +1052,25 @@ a:not(.button) {
 .navigation-menu {
   position: relative;
   display: flex;
-  padding: var(--margin-top) var(--margin-right);
+  padding: var(--margin-medium) var(--margin-large);
   justify-content: space-between;
 }
 
 .menu {
   position: fixed;
-  z-index: 10;
+  z-index: 11;
   top: 0;
   left: 100vw;
-  width: max(440px, 40vw);
+  width: var(--width-article-medium);
   height: max-content;
-  margin: var(--floating-space);
+  margin: var(--margin-small);
   background-color: var(--color-neutral);
   border-radius: var(--border-radius);
-  outline: var(--line-weight) solid var(--color-base);
   transition: left 0.8s cubic-bezier(0.2, 0.4, 0.2, 1), top 0.8s cubic-bezier(0.2, 0.4, 0.2, 1);
 }
 
 .menu section {
-  padding: calc(var(--margin-right) * 1.2) var(--margin-right);
+  padding: calc(var(--margin-large) * 1.2) var(--margin-large);
 }
 
 .menu .software .button {
@@ -696,8 +1090,6 @@ a:not(.button) {
 
 .page-board,
 .background-grid div {
-  width: var(--board-scale-x);
-  height: var(--board-scale-y);
   overflow: hidden;
 }
 
@@ -705,179 +1097,174 @@ a:not(.button) {
 
 #minimap {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 100;
+  margin: var(--margin-small);
+  bottom: 0;
+  right: 0;
   border-radius: var(--border-radius);
-  transition: bottom right 1s ease-in-out;
 }
 
-/*!!!!!!!!!!!!!!!! instruction !!!!!!!!!!!!!!!!*/
+#minimap {
+  z-index: 9;
+  transition: right 0.7s ease-in-out;
+}
 
-.instruction {
-  position: relative;
-  display: flex;
+/*!!!!!!!!!!!!!!!! page about !!!!!!!!!!!!!!!!*/
+
+.page-about img {
+  filter: grayscale(100) contrast(1.1) sepia(1) hue-rotate(60deg);
+  transition: filter 0.32s ease-in-out;
+}
+
+.page-about img:hover {
+  filter: none;
+}
+
+/*!!!!!!!!!!!!!!!! print !!!!!!!!!!!!!!!!*/
+
+.instruction-print {
+  position: absolute;
+  z-index: 14;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  display: none;
 }
 
-.instruction a,
-.instruction a:visited {
-  font-family: "CompagnonMedium";
-  color: var(--color-base);
-  text-decoration: underline;
+.pagedjs_page:last-child {
+  margin-bottom: 6rem;
 }
 
-.instruction a.button {
-  text-decoration: none;
-}
-
-.instruction figure {
-  width: calc(100% - var(--margin-right) * 2);
-  margin: var(--margin-right) var(--margin-top);
-  margin-top: calc(var(--margin-right) * 2);
-}
-
-.instruction img {
-  border-radius: 0;
-}
-
-.container-instruction {
-  position: relative;
-  overflow-y: auto;
-  width: 100%;
-}
-
-.instruction header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.instruction .button {
-  margin-top: var(--margin-right);
-}
-
-.instruction .software .button {
-  background-color: var(--color-software);
-}
-
-.instruction .software .button:hover {
+.pagedjs_pages {
   background-color: var(--color-workshop);
 }
 
-.summary {
-  position: absolute;
-  left: calc(-20vw - var(--margin-right) * 2);
-  width: calc(20vw - var(--margin-right));
-  height: min-content;
-  padding: var(--margin-right);
-  padding-top: 0;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-}
-
-.summary h2 {
-  margin: var(--margin-top) 0;
-}
-
-.print {
-  position: absolute;
-  z-index: 1000;
-  left: 10px;
-  bottom: 10px;
-  width: 2em;
-  height: 2em;
-  cursor: pointer;
-  background-color: var(--color-base);
-}
-
-.container {
-  width: calc(1200px);
-  height: calc(600px);
-  margin: 4rem;
-}
-
-.container-intro {
-  text-transform: uppercase;
-  padding: var(--margin-right);
-  box-shadow: 0px 2px 0px var(--color-base);
-}
-
-.container-corps {
-  display: flex;
-}
-
-.logi-infos:last-child {
-  margin-bottom: var(--margin-right);
-}
-
-.container-left {
-  padding: 0 var(--margin-right);
-  width: 60%;
-  box-shadow: 2px 0px 0px var(--color-base);
-  overflow: hidden;
-}
-
-.container-right h1:first-child,
-.container-left h1:not(#presentation) {
-  margin-top: var(--margin-top);
-}
-
-.container-right {
-  padding: 0 var(--margin-right);
-  width: 40%;
-  overflow: hidden;
-}
-
-.logi-infos {
-  display: flex;
-  width: 100%;
-  align-items: flex-end;
-  flex-direction: column;
-}
-
-.logi-infos p {
-  max-width: 90%;
-  text-align: right;
-}
-
-.container-right li {
-  margin-left: 1.5rem;
-}
-
-.container-right li::before {
-  content: "";
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  translate: -1.4rem;
-}
-
-.container-right li:nth-child(1)::before,
-.container-right li:nth-child(2)::before,
-.container-right li:nth-child(3)::before {
-  outline: 2px solid black;
-}
-
-.container-right li:nth-child(1)::before {
-  background-color: #00ff7fff;
-}
-
-.container-right li:nth-child(2)::before {
+.pagedjs_page {
   background-color: white;
 }
 
-.container-right li:nth-child(3)::before {
-  background-color: #00ffffff;
-}
+/******** page properties ********/
 
-.container-right li:nth-child(4)::before {
-  background-image: url("../workshop_01/instruction/import/version_scheme_arrow.png");
-  background-size: contain;
-}
+@media print {
+  @page {
+    size: 210mm 297mm;
+    margin: 10mm;
+  }
 
-.container-right li:nth-child(5)::before {
-  background-image: url("../workshop_01/instruction/import/version_scheme_arrow_dotted.png");
-  background-size: contain;
+  [class*="navigation-"],
+  .background-grid,
+  .fixed,
+  .close-article,
+  section,
+  nav,
+  canvas {
+    display: none;
+  }
+
+  h1.workshop01,
+  h2.workshop01 {
+    font-size: 16pt;
+    line-height: 16pt;
+  }
+
+  .krita {
+    font-size: 16pt;
+    line-height: 16pt;
+  }
+
+  .blender {
+    font-size: 17pt;
+    line-height: 16pt;
+  }
+
+  .kdenlive {
+    font-size: 14pt;
+    line-height: 16pt;
+  }
+
+  .text-smaller,
+  .article a:not(.button) {
+    font-size: 10pt;
+  }
+
+  i,
+  .article a:not(.button) {
+    line-height: 0pt;
+  }
+
+  p {
+    font-size: 9pt;
+    line-height: 11pt;
+  }
+
+  .container-article {
+    display: block;
+    position: inherit;
+    left: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .article {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .page-workshop .container-corps {
+    flex-direction: row;
+  }
+
+  .container-left {
+    width: 50%;
+    margin-right: 2mm;
+  }
+  .container-right {
+    width: 50%;
+    margin-left: 2mm;
+  }
+
+  .scheme figure {
+    height: 92mm;
+    mix-blend-mode: normal;
+  }
+
+  .article .software .button {
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+
+  .logi-infos p:nth-child(3) {
+    display: none;
+  }
+
+  .scheme li span {
+    width: 0.7rem;
+    height: 0.7rem;
+    left: -1.2rem;
+    outline-width: 1px;
+    mix-blend-mode: normal;
+  }
+
+  .scheme li:nth-child(1) span,
+  .scheme li:nth-child(2) span,
+  .scheme li:nth-child(3) span {
+    top: 0rem;
+  }
+
+  .scheme li:nth-child(4) span,
+  .scheme li:nth-child(5) span {
+    top: -0.3rem;
+  }
+
+  .software {
+    margin-top: 0.5rem;
+  }
+
+  .intro {
+    margin-bottom: 1rem;
+  }
+
+  .break {
+    break-before: always;
+  }
 }

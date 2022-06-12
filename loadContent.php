@@ -2,7 +2,6 @@
 
 echo "
 <section class='map'>
-<i class='arrow arrow-color arrow-rotate' onclick='map()'></i>
 <canvas id='minimap'></canvas>
 </section>
 ";
@@ -25,8 +24,8 @@ foreach ($content as $file) {
   $workshopMerge = implode(" ", $workshopSeparate);
   $makerMerge = implode(" ", $makerSeparate);
   // set good names
-  $findName = array("rome", "elisa", "leila", "mailie", "-p");
-  $replaceName = array("romé", "élisa", "leïla", "maïlie", "-P");
+  $findName = array("rome", "leila", "mailie", "-p");
+  $replaceName = array("romé", "leïla", "maïlie", "-P");
   $makerName = str_replace($findName, $replaceName, $makerMerge);
 
   //files names
@@ -40,7 +39,7 @@ foreach ($content as $file) {
 
   if ($extension != "mp4") {
     echo "
-    <figure class='loaded visual bottom'>
+    <figure class='visual bottom'>
     <img src='$file' loading='lazy'/>
     <ol class='ol-button button-file'>
     <li class='workshop'><a class='button' href='$workshopPath'><span class='$workshopSeparate[0]$workshopSeparate[1]'>$workshopMerge</span></a></li>
@@ -51,7 +50,7 @@ foreach ($content as $file) {
     ";
   } else {
     echo "
-    <div class='loaded visual bottom'>
+    <div class='visual bottom'>
     <video autoplay muted loop playsinline>
     <source src='$file'/>
     Your browser does not support the video tag.
