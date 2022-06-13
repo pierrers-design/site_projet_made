@@ -60,24 +60,29 @@
   --hue-neutral: 160deg;
   --hue-workshop: 240deg; */
   --hue-maker: 350deg;
-  --hue-software: 170deg;
+  --hue-software: 190deg;
   --hue-neutral: 110deg;
   --hue-workshop: 50deg;
   /***********************/
   --color-maker: hsl(var(--hue-maker), 60%, 80%);
   --color-software: hsl(var(--hue-software), 50%, 70%);
   --color-neutral: hsl(var(--hue-neutral), 60%, 80%);
-  --color-workshop: hsl(var(--hue-workshop), 80%, 76%);
+  --color-workshop: hsl(var(--hue-workshop), 80%, 75%);
   /***********************/
   --color-title-maker: hsl(var(--hue-maker), 62%, 78%);
   --color-title-software: hsl(var(--hue-software), 52%, 68%);
   --color-title-neutral: hsl(var(--hue-neutral), 62%, 78%);
-  --color-title-workshop: hsl(var(--hue-workshop), 84%, 70%);
+  --color-title-workshop: hsl(var(--hue-workshop), 88%, 66%);
   /***********************/
   --color-text-maker: hsl(var(--hue-maker), 80%, 30%);
   --color-text-software: hsl(var(--hue-software), 80%, 20%);
   --color-text-neutral: hsl(var(--hue-neutral), 80%, 20%);
-  --color-text-workshop: hsl(var(--hue-workshop), 80%, 20%);
+  --color-text-workshop: hsl(var(--hue-workshop), 90%, 20%);
+  /***********************/
+  --color-lightest-maker: hsl(var(--hue-maker), 100%, 99%);
+  --color-lightest-software: hsl(var(--hue-software), 100%, 98.5%);
+  --color-lightest-neutral: hsl(var(--hue-neutral), 100%, 98.5%);
+  --color-lightest-workshop: hsl(var(--hue-workshop), 100%, 98%);
   /***********************/
   --line-weight: 2px;
   /***********************/
@@ -167,7 +172,6 @@ a,
 
 /******** global text ********/
 
-a::after,
 a {
   text-decoration: none;
 }
@@ -191,11 +195,10 @@ h3 {
 }
 
 h5 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
-p,
-.article a:not(.button) {
+p {
   font-size: 1.1rem;
   line-height: 1.5rem;
 }
@@ -205,15 +208,46 @@ p,
   margin-top: var(--margin-medium);
 }
 
+.article p {
+  width: 95%;
+}
+
 .article h1 {
   padding-top: var(--margin-small);
 }
 
 .article h1:not(.intro h1) {
-  margin-top: var(--margin-medium);
+  margin-top: var(--margin-large);
 }
 
-/******** specific text ********/
+.article h1 {
+  text-transform: uppercase;
+}
+
+.article li a {
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.article a:not(.button) {
+  opacity: 1;
+}
+
+.article a:not(.button):after {
+  content: "↗";
+  font-family: "Inter";
+  position: relative;
+  top: 0.16em;
+}
+
+.article i {
+  opacity: 0.8;
+  font-style: oblique;
+}
+
+.page-workshop .container-last p {
+  margin-top: 0.2rem;
+}
 
 .default {
   top: 30%;
@@ -224,11 +258,25 @@ p,
   font-size: 2.4rem;
   top: 32%;
 }
+.page-krita .article a:not(.button),
+.page-krita .article i {
+  font-family: "Gulax";
+  font-size: 1.14em;
+  letter-spacing: -0.01rem;
+  word-spacing: -0.1rem;
+}
 
 .blender {
   font-family: "Darker";
   font-size: 2.6rem;
   top: 31%;
+}
+.page-blender .article a:not(.button),
+.page-blender .article i {
+  font-family: "Darker";
+  font-size: 1.32em;
+  letter-spacing: -0.01rem;
+  word-spacing: -0.1rem;
 }
 
 .gimp {
@@ -256,6 +304,14 @@ p,
   font-size: 2rem;
   top: 38%;
 }
+.page-kdenlive .article a:not(.button),
+.page-kdenlive .article i {
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 1.04em;
+  letter-spacing: -0.01rem;
+  word-spacing: -0.1rem;
+}
 
 .scribus {
   font-family: "Garamond";
@@ -274,27 +330,25 @@ p,
   font-size: 2.2rem;
   top: 30%;
 }
+.page-workshop01 .article a:not(.button),
+.page-workshop01 .article i {
+  font-family: "CompagnonMedium";
+  font-size: 1.16em;
+  letter-spacing: -0.02rem;
+  word-spacing: -0.2rem;
+}
+
+.page-maker .article a:not(.button),
+.page-maker .article i {
+  font-family: "CompagnonRoman";
+  font-size: 1.16em;
+  letter-spacing: -0.02rem;
+  word-spacing: -0.2rem;
+}
 
 .text-smaller {
   font-size: 1.1rem;
   line-height: 1.5rem;
-}
-
-.workshop01 a {
-  font-size: 2.2rem;
-}
-
-.article h1 {
-  text-transform: uppercase;
-}
-
-.article li a {
-  word-wrap: break-word;
-  hyphens: auto;
-}
-
-.container-last p {
-  margin-top: 0.2rem;
 }
 
 /*!!!!!!!!!!!!!!!! navigation !!!!!!!!!!!!!!!!*/
@@ -402,6 +456,13 @@ p,
 }
 .page-maker .article .workshop .button:hover {
   background-color: var(--color-maker);
+}
+
+.page-software .article .workshop .button {
+  background-color: var(--color-workshop);
+}
+.page-software .article .workshop .button:hover {
+  background-color: var(--color-software);
 }
 
 .maker .button,
@@ -690,12 +751,7 @@ p,
 /******** color grid ********/
 
 .grid-below {
-  opacity: 0.08;
-  filter: saturate(256);
-}
-
-.background-grid {
-  opacity: 0.16;
+  mix-blend-mode: multiply;
 }
 
 .grid {
@@ -704,30 +760,34 @@ p,
 
 .page-workshop .grid {
   filter: var(--filter-grid) hue-rotate(var(--hue-workshop)) brightness(1.6);
+  opacity: 0.18;
 }
 .page-workshop .grid-below {
-  background-color: var(--color-workshop);
+  background-color: var(--color-lightest-workshop);
 }
 
 .page-software .grid {
   filter: var(--filter-grid) hue-rotate(var(--hue-software)) brightness(1.2);
+  opacity: 0.12;
 }
 .page-software .grid-below {
-  background-color: var(--color-software);
+  background-color: var(--color-lightest-software);
 }
 
 .page-maker .grid {
   filter: var(--filter-grid) hue-rotate(var(--hue-maker)) brightness(1);
+  opacity: 0.1;
 }
 .page-maker .grid-below {
-  background-color: var(--color-maker);
+  background-color: var(--color-lightest-maker);
 }
 
 .page-neutral .grid {
   filter: var(--filter-grid) hue-rotate(var(--hue-neutral)) brightness(1);
+  opacity: 0.14;
 }
 .page-neutral .grid-below {
-  background-color: var(--color-neutral);
+  background-color: var(--color-lightest-neutral);
 }
 
 /*!!!!!!!!!!!!!!!! content grid !!!!!!!!!!!!!!!!*/
@@ -803,10 +863,6 @@ p,
   display: none;
 }
 
-.article p {
-  width: 90%;
-}
-
 .page-neutral .background {
   background-color: var(--color-neutral);
 }
@@ -837,6 +893,7 @@ p,
   height: min-content;
   transition: left 0.8s cubic-bezier(0.2, 0.4, 0.2, 1);
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
 }
@@ -886,24 +943,6 @@ p,
 
 /******** article ********/
 
-.article a,
-.article a:visited {
-  font-family: "CompagnonMedium";
-  text-decoration: underline;
-}
-
-.article a.button {
-  text-decoration: none;
-}
-
-.article i {
-  font-style: oblique;
-  font-family: "CompagnonRoman";
-  font-size: 1.14em;
-  letter-spacing: -0.02rem;
-  word-spacing: -0.2rem;
-}
-
 .scheme {
   width: 100%;
   display: flex;
@@ -940,6 +979,7 @@ p,
   height: 1.1rem;
   outline-width: 2px;
   mix-blend-mode: multiply;
+  opacity: 0.8;
 }
 
 .scheme li:nth-child(1) span,
@@ -965,7 +1005,6 @@ p,
 .scheme li:nth-child(4) span,
 .scheme li:nth-child(5) span {
   top: -0.1rem;
-  opacity: 0.8;
 }
 
 .article header {
@@ -1165,6 +1204,11 @@ p,
     line-height: 16pt;
   }
 
+  .intro h1 {
+    font-size: 20pt;
+    line-height: 20pt;
+  }
+
   .krita {
     font-size: 16pt;
     line-height: 16pt;
@@ -1180,19 +1224,19 @@ p,
     line-height: 16pt;
   }
 
-  .text-smaller,
-  .article a:not(.button) {
-    font-size: 10pt;
-  }
-
-  i,
-  .article a:not(.button) {
+  i {
     line-height: 0pt;
   }
 
+  .text-smaller,
+  .article a:not(.button),
   p {
     font-size: 9pt;
     line-height: 11pt;
+  }
+
+  .article p {
+    width: 90%;
   }
 
   .container-article {
@@ -1222,11 +1266,6 @@ p,
     margin-left: 2mm;
   }
 
-  .scheme figure {
-    height: 92mm;
-    mix-blend-mode: normal;
-  }
-
   .article .software .button {
     margin: 0;
     padding: 0;
@@ -1235,6 +1274,15 @@ p,
 
   .logi-infos p:nth-child(3) {
     display: none;
+  }
+
+  .scheme {
+    margin-top: var(--margin-small);
+  }
+
+  .scheme figure {
+    height: 92mm;
+    mix-blend-mode: normal;
   }
 
   .scheme li span {
@@ -1258,10 +1306,6 @@ p,
 
   .software {
     margin-top: 0.5rem;
-  }
-
-  .intro {
-    margin-bottom: 1rem;
   }
 
   .break {

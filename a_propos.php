@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="global page-neutral page-board page-about">
+  <div class="page-neutral page-board page-about">
 
     <nav class="navigation-global-l">
       <a href="index.html" class="button-arrow-l pointer">
@@ -96,9 +96,14 @@
               <h1>RETOURS</h1>
               <p>
                 <?php
-                $lines_array = file("./made/retour.md");
-                foreach ($lines_array as $line) {
-                  echo "<p><i>$line</i></p>";
+                $fileRetour = "./made/retour.md";
+                if (file_exists($fileRetour)) {
+                  $lines_array = file($fileRetour);
+                  foreach ($lines_array as $line) {
+                    echo "<p><i>$line</i></p>";
+                  }
+                } else {
+                  echo "Il n'y a pas de retours :(";
                 }
                 ?>
               </p>

@@ -2,7 +2,7 @@
   <div id="intro" class="container-intro intro">
     <header>
       <h3 class="workshop01 text-smaller">Workshop 01</h3>
-      <h3 class="workshop01 text-smaller">Logiciels libres</h3>
+      <h3 class="workshop01 text-smaller">Créer libre</h3>
       <h3 class="workshop01 text-smaller">avril 2022</h3>
     </header>
     <h1 class="workshop01">Expérimentations en motion design et typographie animée avec des logiciels libres</h1>
@@ -12,9 +12,9 @@
       <h1 class="workshop01" id="presentation">Présentation</h1>
       <p>
         Le but est de créer une affiche animée autour du thème du <i>versionnage</i>. La contrainte sera de réaliser une animation de <i>8 secondes</i> avec au moins un
-        glyphe d'une typographie (libre !). Le format, les couleurs, la quantité de texte et le nombre de typographies est libre.
+        glyphe d'une typographie (libre !). Le format, la couleur, la quantité de texte et typographies est libre.
         <br />
-        Le workshop va être séparé en trois temps; l'<i>expérimentation</i>, la <i>réalisation</i>, et le <i>montage</i>.
+        Le workshop va être séparé en trois temps; l'<i>expérimentation</i>, la <i>réalisation</i>, ainsi que le&nbsp;<i>montage</i>.
       </p>
       <h1 class="workshop01" id="theme">Thème</h1>
       <h2 class="workshop01">Qu’est-ce que le versionnage&#8239;?</h2>
@@ -24,7 +24,7 @@
         fichiers de sauvegarde.
       </p>
       <p>
-        Ce système permet d’avoir accès à un <i>historique</i> des versions de dossiers, fichiers, et leur contenu. Il est très utilisé dans le domaine du libre,
+        Ce système permet d’avoir accès à un <i>historique</i> des versions de dossiers, fichiers, et de leur contenu. Il est très utilisé dans le domaine du libre,
         puisqu’il va simplifier le développement collaboratif, notamment avec des <i>gestionnaires de versionnage</i> tels que GitHub ou GitLab.
       </p>
       <h2 class="workshop01">Historique du logiciel de versionnage avec Git</h2>
@@ -99,7 +99,7 @@
       </div>
       <p>
         Krita est un logiciel de retouche d'<i>images matricielles</i> principalement destiné au <i>dessin numérique</i> et l’<i>animation 2D</i>. Il est disponible pour la première
-        fois en 2004, et supervisé par la Krita Foundation depuis 2012. Il peut servir d’alternative à Photoshop, Affinity Photo et ClipStudio Paint.
+        fois en 2004, et est supervisé par la Krita Foundation depuis 2012. Il peut servir d’alternative à Photoshop, Affinity Photo et ClipStudio Paint.
       </p>
       <div class="logi-infos">
         <p>
@@ -125,7 +125,7 @@
         <a class="button" href="../../software/krita/krita.php"><span class="krita">G'Mic</span></a>
       </div>
       <p>
-        G’Mic est un ensemble de micro-logiciels libre dédié au <i>traitement d’image</i>, qui peut être utilisé en ligne de commandes ou rattaché sous forme de
+        G’Mic est un ensemble de micro-logiciels libres dédié au <i>traitement d’image</i>, qui peut être utilisé en ligne de commandes ou rattaché sous forme de
         <i>plugin</i> à divers programmes. Depuis 2008, il est principalement développé par le laboratoire GREYC, notamment affilié au CNRS.
       </p>
       <div class="logi-infos">

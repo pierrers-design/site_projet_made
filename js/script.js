@@ -85,8 +85,8 @@ $(".background-grid div").css({ width: numberVisual * 8 + 100 + "vw", height: nu
 
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
-var boardWidth = $(".global").width() - windowHeight;
-var boardHeight = $(".global").height() - windowHeight;
+var boardWidth = $(".page-board").width() - windowHeight;
+var boardHeight = $(".page-board").height() - windowHeight;
 
 $(".visual").each(function () {
   $(this).css({ left: Math.floor(Math.random() * boardWidth) + "px", top: Math.floor(Math.random() * boardHeight) + "px", opacity: "1" });
@@ -95,14 +95,14 @@ $(".visual").each(function () {
 // set properties of visuals
 
 $(".visual").draggable({
-  containment: ".global",
+  containment: ".page-board",
 });
 
 $(".visual").resizable({
   handles: "n, s, e, w, ne, nw, se, sw",
   minWidth: 400,
   minHeight: 200,
-  containment: ".global",
+  containment: ".page-board",
 });
 
 $(".visual").resizable({
@@ -128,7 +128,7 @@ $(".visual").click(function () {
 
 // get colors
 
-var colorBoard = $(".grid-below").css("background-color");
+var colorBoard = $(".background").css("background-color");
 var colorBoardToArray = colorBoard.match(/\d+/g);
 var Red = colorBoardToArray[0];
 var Green = colorBoardToArray[1];

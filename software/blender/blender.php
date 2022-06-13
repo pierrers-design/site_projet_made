@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="global page-software page-board">
+  <div class="page-software page-blender page-board">
     <nav class="navigation-global-l">
       <a href="../../index.html" class="button-arrow-l pointer">
         <i class="arrow arrow-color arrow-push arrow-link"></i>
@@ -69,28 +69,54 @@
         <nav class="summary background">
           <ol>
             <li>
-              <p><a href="#intro">Introduction</a></p>
-            </li>
-            <li>
               <p><a href="#presentation">Présentation</a></p>
             </li>
             <li>
-              <p><a href="#theme">Thème</a></p>
+              <p><a href="#site">Site Web</a></p>
             </li>
             <li>
-              <p><a href="#projets">Exemple de projets</a></p>
+              <p><a href="#doc">Documentation</a></p>
             </li>
             <li>
-              <p><a href="#logiciels">Logiciels</a></p>
-            </li>
-            <li>
-              <p><a href="#ressources">Ressources typographique</a></p>
+              <p><a href="#more">En savoir plus</a></p>
             </li>
           </ol>
         </nav>
 
         <div class="article background">
-
+          <div class="container-corps container-solo">
+            <div class="intro" id="presentation">
+              <h1 class="blender">Présentation</h1>
+              <p>
+                Blender est un logiciel de <i>création 3D multitâche</i> (modélisation, animation, rendu) créé en 1994 par Ton Roosendaal.
+              </p>
+              <p>
+                Il est aujourd’hui l’un des logiciels libres de création le plus réputé et utilisé face aux alternatives propriétaires tels que Maya, Cinema4D, 3DS Max, Zbrush et Houdini.
+              </p>
+            </div>
+            <div id="site">
+              <h1 class="blender">Site Web</h1>
+              <p>
+                [en] <a href="https://www.blender.org/" target="_blank">blender.org</a>
+              </p>
+            </div>
+            <div id="doc">
+              <h1 class="blender">Documentation</h1>
+              <p>
+                [fr] <a href="https://docs.blender.org/manual/fr/latest/" target="_blank">docs.blender.org/manual/fr/latest</a>
+              </p>
+            </div>
+            <div class="container-last" id="more">
+              <h1 class="blender">En savoir plus</h1>
+              <p>
+                [fr] <a href="https://fr.wikipedia.org/wiki/Blender" target="_blank">fr.wikipedia.org/wiki/Blender</a>
+                <br />
+                [en] <a href="https://github.com/blender/blender" target="_blank">github.com/blender/blender</a>
+                <br />
+              <div class='workshop'><a class='button' href='../../workshop/workshop_01/workshop_01.php'><span class='workshop01'>Workshop 01</span></a></div>
+              </p>
+            </div>
+          </div>
         </div>
       </article>
     </section>

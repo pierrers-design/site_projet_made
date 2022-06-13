@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="global page-software page-board">
+  <div class="page-software page-board">
     <nav class="navigation-global-l">
       <a href="../../index.html" class="button-arrow-l pointer">
         <i class="arrow arrow-color arrow-push arrow-link"></i>

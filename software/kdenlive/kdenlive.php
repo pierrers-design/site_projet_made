@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="global page-software page-board">
+  <div class="page-software page-kdenlive page-board">
     <nav class="navigation-global-l">
       <a href="../../index.html" class="button-arrow-l pointer">
         <i class="arrow arrow-color arrow-push arrow-link"></i>
@@ -69,28 +69,55 @@
         <nav class="summary background">
           <ol>
             <li>
-              <p><a href="#intro">Introduction</a></p>
-            </li>
-            <li>
               <p><a href="#presentation">Présentation</a></p>
             </li>
             <li>
-              <p><a href="#theme">Thème</a></p>
+              <p><a href="#site">Site Web</a></p>
             </li>
             <li>
-              <p><a href="#projets">Exemple de projets</a></p>
+              <p><a href="#doc">Documentation</a></p>
             </li>
             <li>
-              <p><a href="#logiciels">Logiciels</a></p>
-            </li>
-            <li>
-              <p><a href="#ressources">Ressources typographique</a></p>
+              <p><a href="#more">En savoir plus</a></p>
             </li>
           </ol>
         </nav>
 
         <div class="article background">
-
+          <div class="container-corps container-solo">
+            <div class="intro" id="presentation">
+              <h1 class="kdenlive">Présentation</h1>
+              <p>
+                Kdenlive est un logiciel de <i>montage vidéo</i> créé en 2002 par Jean-Baptiste Mardelle. Il permet de gérer des images, vidéos et sons, mais aussi d’y
+                appliquer des effets.
+              </p>
+              <p>
+                Il peut servir d’alternative à des logiciels comme Premiere Pro, Sony Vegas et Davinci Resolve.
+              </p>
+            </div>
+            <div id="site">
+              <h1 class="kdenlive">Site Web</h1>
+              <p>
+                [fr] <a href="https://kdenlive.org/fr/" target="_blank">kdenlive.org/fr</a>
+              </p>
+            </div>
+            <div id="doc">
+              <h1 class="kdenlive">Documentation</h1>
+              <p>
+                [fr] <a href="https://docs.kdenlive.org/fr/" target="_blank">docs.kdenlive.org/fr</a>
+              </p>
+            </div>
+            <div class="container-last" id="more">
+              <h1 class="kdenlive">En savoir plus</h1>
+              <p>
+                [fr] <a href="https://fr.wikipedia.org/wiki/Kdenlive" target="_blank">fr.wikipedia.org/wiki/Kdenlive</a>
+                <br />
+                [en] <a href="https://github.com/KDE/kdenlive" target="_blank">github.com/KDE/kdenlive</a>
+                <br />
+              <div class='workshop'><a class='button' href='../../workshop/workshop_01/workshop_01.php'><span class='workshop01'>Workshop 01</span></a></div>
+              </p>
+            </div>
+          </div>
         </div>
       </article>
     </section>

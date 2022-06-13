@@ -13,7 +13,7 @@
 </head>
 
 <body class="page-workshop">
-  <div class="global page-board">
+  <div class="page-workshop01">
     <article>
 
       <?php

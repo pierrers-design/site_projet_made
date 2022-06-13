@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="global page-software page-board">
+  <div class="page-software page-krita page-board">
     <nav class="navigation-global-l">
       <a href="../../index.html" class="button-arrow-l pointer">
         <i class="arrow arrow-color arrow-push arrow-link"></i>
@@ -69,38 +69,56 @@
         <nav class="summary background">
           <ol>
             <li>
-              <p><a href="#intro">Introduction</a></p>
-            </li>
-            <li>
               <p><a href="#presentation">Présentation</a></p>
             </li>
             <li>
-              <p><a href="#theme">Thème</a></p>
+              <p><a href="#site">Site Web</a></p>
             </li>
             <li>
-              <p><a href="#projets">Exemple de projets</a></p>
+              <p><a href="#doc">Documentation</a></p>
             </li>
             <li>
-              <p><a href="#logiciels">Logiciels</a></p>
-            </li>
-            <li>
-              <p><a href="#ressources">Ressources typographique</a></p>
+              <p><a href="#more">En savoir plus</a></p>
             </li>
           </ol>
         </nav>
 
         <div class="article background">
-
+          <div class="container-corps container-solo">
+            <div class="intro" id="presentation">
+              <h1 class="krita">Présentation</h1>
+              <p>
+                Krita est un logiciel de retouche d'<i>images matricielles</i> principalement destiné au <i>dessin numérique</i> et l’<i>animation 2D</i>. Il est disponible pour la première
+                fois en 2004, et est supervisé par la Krita Foundation depuis 2012.
+              </p>
+              <p>
+                On peut l'utiliser comme alternative à Photoshop, Affinity Photo et ClipStudio Paint.
+              </p>
+            </div>
+            <div id="site">
+              <h1 class="krita">Site Web</h1>
+              <p>
+                [fr] <a href="https://krita.org/fr/" target="_blank">krita.org/fr</a>
+              </p>
+            </div>
+            <div id="doc">
+              <h1 class="krita">Documentation</h1>
+              <p>
+                [fr] <a href="https://docs.krita.org/fr/index.html" target="_blank">docs.krita.org/fr/index.html</a>
+              </p>
+            </div>
+            <div class="container-last" id="more">
+              <h1 class="krita">En savoir plus</h1>
+              <p>
+                [fr] <a href="https://fr.wikipedia.org/wiki/Krita" target="_blank">fr.wikipedia.org/wiki/Krita</a>
+                <br />
+                [en] <a href="https://github.com/KDE/krita" target="_blank">github.com/KDE/krita</a>
+                <br />
+              <div class='workshop'><a class='button' href='../../workshop/workshop_01/workshop_01.php'><span class='workshop01'>Workshop 01</span></a></div>
+              </p>
+            </div>
+          </div>
         </div>
-      </article>
-
-      <article class="visual article">
-        <div class="presentation background">
-          <h1 class="krita">Krita ?</h1>
-          <p>Krita est un logiciel de retouche d’images matriciels principalement destiné au dessin numérique et l’animation 2D. Il est disponible pour la première fois en 2004, et supervisé par la Krita Foundation depuis 2012. <br>
-            Il peut servir d’alternative à Photoshop, Affinity Photo et ClipStudio Paint.</p>
-        </div>
-
       </article>
 
     </section>

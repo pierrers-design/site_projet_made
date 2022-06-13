@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="global page-workshop page-board">
+  <div class="page-workshop page-workshop01 page-board">
 
     <nav class="navigation-global-l">
       <a href="../../index.html" class="button-arrow-l pointer">
@@ -71,9 +71,9 @@
     <article class="container-article background">
 
       <nav class="close-article background">
-        <span class="button-fullscreen pointer">⬓</span>
-        <span class="button-print pointer">IMPRIMER</span>
         <i class="arrow arrow-color arrow-rotate pointer"></i>
+        <span class="button-print pointer">IMPRIMER</span>
+        <span class="button-fullscreen pointer">⬓</span>
       </nav>
 
       <iframe class="instruction-print" src="" frameborder="0"></iframe>
