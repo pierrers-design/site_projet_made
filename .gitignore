@@ -1,3 +1,6 @@
 .vscode
-workshop/workshop_01/makers/*/made
+workshop/workshop_01/makers/*/made/blender
+workshop/workshop_01/makers/*/made/kdenlive
+workshop/workshop_01/makers/*/made/krita
+*.mov
 fiveserver.config.js

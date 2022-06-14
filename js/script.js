@@ -74,6 +74,15 @@ $(".button-print").click(function () {
   }
 });
 
+// page board move
+
+$("html").mousedown(function () {
+  $(".dragscroll").css({ cursor: "all-scroll" });
+});
+$("html").mouseup(function () {
+  $(".dragscroll").css({ cursor: "crosshair" });
+});
+
 // set scale of imgs and videos
 
 var numberVisual = $(".content").find(".visual").length;

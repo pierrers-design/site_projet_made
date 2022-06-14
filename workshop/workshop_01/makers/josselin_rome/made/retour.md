@@ -1,0 +1,5 @@
+Le Workshop était intéressant dans sa capacité à nous pousser à requestionner nos outils de conception graphique. Les logiciels proposés étais assez pertinents et j'ai notamment été surpris par la qualité de Krita qui propose une alternative à Photoshop mais avec une interface volontairement orientée pour du dessin numérique.
+
+Le choix d'un thème de création précis comme la typographie était aussi intéressant afin de nous permettre de découvrir des logiciels inconnus au travers d'un prisme réduit nous permettant de concentrer sur une partie du logiciel et obtenir un résultat visuellement abouti plutôt que de s'éparpiller à découvrir l'outil complet durant le court temps de travail qu'on avait.
+
+Enfin c'était aussi intéressant de voir une multitude de logiciels libres proposant des outils dans des champs variés comme le montage vidéo avec Kdenlive qui n'est pas forcément un logiciel de création graphique dans un premier temps mais qui reste très important dans le travail du graphiste.

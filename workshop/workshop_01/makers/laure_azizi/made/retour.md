@@ -1,0 +1,5 @@
+1. Bonne decouverte de ce logiciel que je ne connaissait absolument pas mais qui permet de faire rapidement des effets difficilement possible sur Photoshop ou du moins accéssible.
+2. Je connaissais un tout petit peu Blender mais bonne surprise de découvrir toutes les possibilités de traitement graphique du texte sur un logiciel de 3D, auquel je n'aurai pas pensé.
+3. Interface un peu compliqué pour des actions assez simples mais c'était bien de pouvoir faire du montage directement sur un autre logiciel que After Effects ou Premiere Pro qui sont plus générals dans leur fonctionnement.
+
+Merci pour ce workshop très instructif qui m'a permis de connaitre de nouveaux logiciels libres dont j'ignorait totalement l'existantce avant aujourd'hui et que je vais continuer d'utiliser. Dans l'ensemble les explications étaient claires et nous ont permis de vraiment comprendre les logiciels qui pourraient être compliqués au premier abord. 
