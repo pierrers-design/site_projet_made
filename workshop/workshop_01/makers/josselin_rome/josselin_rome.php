@@ -62,7 +62,7 @@
 
       ?>
 
-<article class="container-article">
+      <article class="container-article">
         <nav class="close-article background" onclick="hideArticle()">
           <i class="arrow arrow-color arrow-rotate pointer"></i>
         </nav>
@@ -105,7 +105,8 @@
               </p>
             </div>
             <div id="dossier" class="container-last">
-
+              <h1>DOSSIER DE CRÉATION</h1>
+              <iframe class="dir-viewer" src="made/dir_viewer.php" frameborder="0"></iframe>
             </div>
           </div>
         </div>

@@ -104,7 +104,8 @@
               </p>
             </div>
             <div id="dossier" class="container-last">
-
+              <h1>DOSSIER DE CRÉATION</h1>
+              <iframe class="dir-viewer" src="made/dir_viewer.php" frameborder="0"></iframe>
             </div>
           </div>
         </div>

@@ -77,7 +77,7 @@
   --color-text-maker: hsl(var(--hue-maker), 80%, 30%);
   --color-text-software: hsl(var(--hue-software), 80%, 20%);
   --color-text-neutral: hsl(var(--hue-neutral), 80%, 20%);
-  --color-text-workshop: hsl(var(--hue-workshop), 90%, 20%);
+  --color-text-workshop: hsl(var(--hue-workshop), 100%, 20%);
   /***********************/
   --color-lightest-maker: hsl(var(--hue-maker), 100%, 99%);
   --color-lightest-software: hsl(var(--hue-software), 100%, 98.5%);
@@ -92,11 +92,9 @@
   /***********************/
   --border-radius: 0.4rem;
   /***********************/
-  --width-article-medium: max(440px, 40vw);
-  --width-article-small: calc(var(--width-article-medium) / 1.4);
+  --width-article-medium: max(400px, 32vw);
   --width-summary: 8rem;
   --width-article-medium-full: calc(var(--width-article-medium) + var(--width-summary));
-  --width-article-small-full: calc(var(--width-article-small) + var(--width-summary));
 }
 
 ul,
@@ -176,6 +174,8 @@ a {
   text-decoration: none;
 }
 
+.container-explorer,
+a,
 h1,
 h2,
 h3,
@@ -187,6 +187,7 @@ span {
   margin: 0;
 }
 
+.download,
 span,
 h1,
 h2,
@@ -835,8 +836,8 @@ p {
   position: fixed;
   z-index: 12;
   height: calc(100vh - var(--margin-medium) * 5);
-  width: var(--width-article-small-full);
-  left: calc(var(--width-article-small-full) * -1 - var(--margin-small) * 2);
+  width: var(--width-article-medium-full);
+  left: calc(var(--width-article-medium-full) * -1 - var(--margin-small) * 2);
   bottom: 0;
   overflow: hidden;
   display: flex;
@@ -1311,4 +1312,164 @@ p {
   .break {
     break-before: always;
   }
+}
+
+/*!!!!!!!!!!!!!!!! dir viewer !!!!!!!!!!!!!!!!*/
+
+#dossier iframe {
+  width: 98%;
+  height: 65vh;
+  margin-top: 1rem;
+  outline: var(--line-weight) solid var(--color-text-maker);
+  border-radius: var(--border-radius);
+}
+
+.container-explorer {
+  display: flex;
+  flex-direction: column;
+}
+
+#breadcrumb {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--margin-small);
+  background-color: var(--color-maker);
+  border-bottom: var(--line-weight) solid var(--color-text-maker);
+}
+
+#breadcrumb,
+#breadcrumb span {
+  font-size: 1rem;
+}
+
+.data-infos {
+  font-size: 1rem;
+  opacity: 0.4;
+}
+
+table {
+  width: 100vw;
+  height: 100vh;
+}
+
+thead,
+thead tr,
+tbody {
+  display: block;
+  width: 100vw;
+}
+
+thead {
+  position: fixed;
+  z-index: 20;
+  top: calc(2rem + var(--line-weight));
+  height: 2rem;
+  display: 	flex;
+  align-items: center;
+  background-color: var(--color-maker);
+  outline: var(--line-weight) solid var(--color-text-maker);
+}
+
+tbody {
+  position: fixed;
+  top: 4rem;
+  overflow-y: scroll;
+  height: calc(100vh - 4rem);
+}
+
+thead tr th,
+tbody td {
+  width: 20vw;
+}
+
+thead tr th:first-child,
+tbody td:first-child {
+  width: 50vw;
+}
+
+thead tr th:last-child,
+tbody td:last-child {
+  width: 10vw;
+}
+
+th {
+  font-weight: normal;
+  padding: 0 var(--margin-small);
+  text-align: right;
+  cursor: pointer;
+}
+
+th:first-child {
+  text-align: left;
+}
+
+td {
+  padding: var(--margin-small);
+  vertical-align: top;
+  border-bottom: var(--line-weight) solid var(--color-text-maker);
+}
+
+td:not(.first-column) {
+  text-align: end;
+}
+
+.is_file td:last-child {
+  text-align: center;
+  vertical-align: middle;
+  border-left: var(--line-weight) solid var(--color-text-maker);
+}
+
+.is_dir .data-size {
+  color: transparent;
+  font-size: 0;
+}
+.is_dir .download {
+  visibility: hidden;
+}
+
+.download {
+  text-decoration: underline;
+}
+
+.fileIcon,
+.folderIcon,
+.thumbnail {
+  display: block;
+  margin-top: var(--margin-small);
+}
+
+.folderIcon {
+  height: 4.2rem;
+}
+
+.fileIcon {
+  height: 4.8rem;
+}
+
+.thumbnail {
+  width: 6rem;
+  height: fit-content;
+  border-radius: var(--border-radius);
+}
+
+.first-column {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.empty {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 70vh;
 }
